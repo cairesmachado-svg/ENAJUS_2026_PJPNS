@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política Judiciária como Campo Emergente · ENAJUS</title>
+<meta name="description" content="Apresentação do artigo Política Judiciária como Campo Emergente: da cartografia bibliométrica à maturidade observável das PJNP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14213a; --ink2:#3d4a63; --mute:#6b7689; --line:#d9dee7; --bg:#f6f4ef; --paper:#ffffff;
+  --navy:#1d3557; --navy2:#2b4c7e;
+  --lim:#b5651d; --lim-bg:#fbefe3;      /* limite */
+  --hip:#0f7a6c; --hip-bg:#e2f3f0;      /* hipótese */
+  --ag:#5b4a9e;  --ag-bg:#ece9f7;       /* agenda */
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0d1626;color:var(--ink);font-family:var(--sans);overflow:hidden}
+.deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.slide{position:absolute;left:50%;top:50%;width:1280px;height:720px;margin:-360px 0 0 -640px;
+  background:var(--bg);padding:56px 72px 60px;display:none;flex-direction:column;overflow:hidden;
+  transform-origin:center center;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.slide.active{display:flex}
+.slide::after{content:attr(data-n);position:absolute;right:28px;bottom:20px;font-size:13px;color:var(--mute);letter-spacing:.04em}
+.slide .foot{position:absolute;left:72px;bottom:20px;font-size:12px;color:var(--mute);letter-spacing:.03em}
+.kicker{font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy2);margin-bottom:10px}
+h1{font-family:var(--serif);font-weight:700;font-size:54px;line-height:1.08;color:var(--navy)}
+h2{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.12;color:var(--navy);margin-bottom:26px}
+h3{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:8px}
+p,li{font-size:20px;line-height:1.45;color:var(--ink2)}
+.grow{flex:1;min-height:0}
+.row{display:flex;gap:28px}
+.col{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.pill{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px;margin:2px 4px 2px 0}
+.p-lim{background:var(--lim-bg);color:var(--lim)} .p-hip{background:var(--hip-bg);color:var(--hip)} .p-ag{background:var(--ag-bg);color:var(--ag)}
+.big{font-family:var(--serif);font-weight:700;font-size:60px;line-height:1;color:var(--navy)}
+.big small{font-size:24px;color:var(--mute);font-weight:600}
+.lbl{font-size:16px;color:var(--mute);margin-top:6px;line-height:1.35}
+.quote{font-family:var(--serif);font-size:26px;line-height:1.35;color:var(--navy);border-left:5px solid var(--navy2);padding:6px 0 6px 22px}
+.muted{color:var(--mute)}
+strong{color:var(--ink)}
+
+/* title */
+.s-title{background:linear-gradient(135deg,#1d3557 0%,#203f69 60%,#2b4c7e 100%);color:#fff}
+.s-title h1{color:#fff;font-size:60px;max-width:1000px}
+.s-title .sub{font-family:var(--serif);font-size:28px;color:#cfdcf0;margin-top:18px;max-width:950px;line-height:1.3}
+.s-title .authors{font-size:19px;color:#e7eef9;margin-top:auto;line-height:1.6}
+.s-title .inst{font-size:16px;color:#a9bddb;letter-spacing:.04em}
+.s-title .tag{display:inline-block;border:1.5px solid #8fb3e6;color:#cfe0f7;padding:6px 14px;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:26px;align-self:flex-start}
+.s-title::after{color:#a9bddb}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:14px}
+.tl .it{display:flex;gap:18px;align-items:flex-start}
+.tl .yr{font-family:var(--serif);font-weight:700;font-size:26px;color:var(--navy2);min-width:74px}
+.tl .tx{font-size:18px;line-height:1.4;color:var(--ink2);padding-top:4px}
+
+/* chain */
+.chain{display:flex;align-items:stretch;gap:0}
+.chain .step{flex:1;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 18px;position:relative}
+.chain .step .num{font-size:13px;font-weight:700;color:var(--navy2);letter-spacing:.1em}
+.chain .step h3{font-size:21px;margin:6px 0 8px}
+.chain .step p{font-size:17px;line-height:1.4}
+.chain .step .prod{margin-top:10px;font-size:13.5px;color:var(--mute);border-top:1px dashed var(--line);padding-top:8px}
+.chain .arr{width:34px;display:flex;align-items:center;justify-content:center;color:var(--navy2);font-size:26px;font-weight:700}
+.chain .step.e1{border-top:5px solid #6c8ebf}.chain .step.e2{border-top:5px solid #4f77b0}.chain .step.e3{border-top:5px solid #2b4c7e}.chain .step.e4{border-top:5px solid #1d3557}.chain .step.e5{border-top:5px solid #0f2340}
+
+/* bars */
+.bars{display:flex;flex-direction:column;gap:16px}
+.bar{display:grid;grid-template-columns:200px 1fr 110px;align-items:center;gap:14px}
+.bar .nm{font-size:18px;font-weight:600;color:var(--ink)}
+.bar .tr{height:34px;background:#e8ebf1;border-radius:8px;overflow:hidden}
+.bar .fl{height:100%;background:var(--navy2);border-radius:8px}
+.bar .vl{font-size:18px;font-weight:700;color:var(--ink);text-align:right}
+.bar .vl span{font-weight:500;color:var(--mute);font-size:14px}
+.fl.hatch{background:repeating-linear-gradient(45deg,#b9c3d4 0 8px,#d2d9e5 8px 16px)}
+
+/* vertical column chart */
+.vchart{display:flex;align-items:flex-end;gap:22px;height:250px;padding:0 6px;border-bottom:2px solid var(--line)}
+.vchart .c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.vchart .c .b{width:100%;background:var(--navy2);border-radius:6px 6px 0 0}
+.vchart .c .v{font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+.vchart .c .v small{display:block;font-weight:500;color:var(--mute);font-size:12.5px;text-align:center}
+.vlabels{display:flex;gap:22px;padding:8px 6px 0}
+.vlabels span{flex:1;text-align:center;font-size:14px;color:var(--mute)}
+
+/* formula */
+.formula{font-family:var(--serif);font-size:44px;color:var(--navy);text-align:center;padding:18px 0 26px;letter-spacing:.01em}
+.formula b{font-weight:700}
+.formula .m{color:#2b4c7e}.formula .g{color:#5b4a9e}.formula .a{color:#0f7a6c}
+.dim{border-top:6px solid}
+.dim .w{font-family:var(--serif);font-size:44px;font-weight:700;line-height:1}
+.dim ul{margin-top:10px;padding-left:20px}
+.dim li{font-size:16.5px;line-height:1.45}
+
+/* table */
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-size:17px;color:var(--ink2)}
+th{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.hl td{background:#eef5ff;color:var(--ink);font-weight:600}
+tr.hl2 td{background:var(--hip-bg);color:var(--ink);font-weight:600}
+
+/* limits */
+.lims{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.lim{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--lim);border-radius:12px;padding:16px 20px}
+.lim h3{color:var(--lim);font-size:18px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.lim ul{padding-left:18px;margin-bottom:8px}
+.lim li{font-size:16.5px;line-height:1.42}
+.lim .to{font-size:14px;color:var(--mute)}
+
+.hyps{display:flex;flex-direction:column;gap:12px}
+.hyp{display:grid;grid-template-columns:64px 1fr 230px;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--hip);border-radius:12px;padding:13px 18px}
+.hyp .id{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--hip)}
+.hyp p{font-size:18px;line-height:1.38;color:var(--ink)}
+.hyp .or{font-size:13.5px;color:var(--mute);line-height:1.35}
+.hyp .or b{color:var(--lim)}
+
+.agenda{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ag{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--ag);border-radius:12px;padding:16px 20px}
+.ag .id{font-size:13px;font-weight:700;color:var(--ag);letter-spacing:.1em}
+.ag h3{font-size:18.5px;margin:4px 0 6px}
+.ag p{font-size:15.5px;line-height:1.4}
+.ag .lk{margin-top:6px}
+
+.s-end{background:linear-gradient(135deg,#1d3557,#2b4c7e);color:#fff;justify-content:center}
+.s-end .quote{color:#fff;border-color:#8fb3e6;font-size:42px;max-width:1000px}
+.s-end p{color:#cfdcf0}
+.s-end::after{color:#a9bddb}
+
+.app-tag{position:absolute;top:22px;right:28px;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--mute);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+
+/* UI */
+.progress{position:fixed;left:0;bottom:0;height:4px;background:#8fb3e6;transition:width .25s;z-index:5}
+.hud{position:fixed;right:14px;top:12px;z-index:6;display:flex;gap:8px;font:600 13px var(--sans)}
+.hud span{background:rgba(255,255,255,.1);color:#cfdcf0;padding:5px 10px;border-radius:8px;display:none}
+.hud span.on{display:inline-block}
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:38vh;overflow:auto;background:#101b2e;color:#e6edf8;border-top:2px solid #2b4c7e;padding:16px 26px 22px;z-index:7;display:none;font-size:17px;line-height:1.55}
+.notes.on{display:block}
+.notes .meta{font-size:13px;color:#8fb3e6;letter-spacing:.06em;margin-bottom:6px;text-transform:uppercase}
+.slide aside{display:none}
+.help{position:fixed;left:14px;top:12px;z-index:6;color:#6f83a3;font:500 12px var(--sans);opacity:.8}
+.navbtn{position:fixed;bottom:14px;z-index:6;background:rgba(255,255,255,.08);color:#cfdcf0;border:0;border-radius:999px;width:42px;height:42px;font-size:20px;cursor:pointer}
+.navbtn.prev{left:14px}.navbtn.next{right:14px}
+@media (hover:hover){.navbtn{opacity:.35}.navbtn:hover{opacity:1}}
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{overflow:visible;background:#fff;height:auto}
+  .deck{position:static;display:block}
+  .slide{display:flex!important;position:relative;left:auto;top:auto;margin:0;transform:none!important;box-shadow:none;page-break-after:always;break-after:page}
+  .progress,.hud,.notes,.help,.navbtn{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- 1 -->
+<section class="slide s-title" data-t="30">
+  <span class="tag">Estudo exploratório · ENAJUS</span>
+  <h1>Política Judiciária como Campo Emergente</h1>
+  <div class="sub">Da cartografia bibliométrica à maturidade observável das Políticas Judiciárias Nacionais Programáticas (PJNP)</div>
+  <div class="authors">Igor Caires Machado · Marina Brazil Bonani · Antonio Ferreira de Melo Filho · Juliana Almeida Costa Cronemberger<br><span class="inst">Conselho Nacional de Justiça · Escola Nacional do Judiciário</span></div>
+  <aside>O CNJ fala em política judiciária. A ciência ainda não concorda sobre o que isso significa. Este trabalho parte desse descompasso. Apresentar autores e o caráter exploratório do estudo em uma frase.</aside>
+</section>
+
+<!-- 2 -->
+<section class="slide" data-t="90">
+  <div class="kicker">O problema</div>
+  <h2>O termo virou norma. O conceito seguiu disperso.</h2>
+  <div class="row grow">
+    <div class="col" style="flex:1.05">
+      <div class="tl">
+        <div class="it"><div class="yr">2010</div><div class="tx"><strong>Res. CNJ 125</strong> institui a Política Judiciária Nacional de Tratamento Adequado dos Conflitos</div></div>
+        <div class="it"><div class="yr">2014</div><div class="tx"><strong>Res. CNJ 198</strong> vincula planejamento e gestão estratégica ao ciclo 2015–2020</div></div>
+        <div class="it"><div class="yr">2020</div><div class="tx"><strong>Res. CNJ 325</strong> define política judiciária nacional na Estratégia 2021–2026</div></div>
+        <div class="it"><div class="yr">2026</div><div class="tx"><strong>Projeto ELO</strong> e <strong>IN CNJ 112 e 113</strong> organizam ciclo e governança das PJNP</div></div>
+      </div>
+    </div>
+    <div class="col" style="flex:1">
+      <div class="card">
+        <h3>O risco</h3>
+        <p>Sem um conceito delimitado, o registro administrativo tende a ser lido como prova de resultado.</p>
+      </div>
+      <div class="card" style="border-left:6px solid var(--navy2)">
+        <h3>Pergunta integradora</h3>
+        <p>Como delimitar a acepção programática de “política judiciária” e aplicá-la à avaliação observável das PJNP do CNJ?</p>
+      </div>
+    </div>
+  </div>
+  <aside>O vocabulário institucional cresceu rápido. A literatura internacional opera com gramáticas distintas: ciência política, economia institucional, administração de tribunais, tradição doutrinária. O estudo pergunta o que pode ser observado antes de qualquer juízo sobre efetividade.</aside>
+</section>
+
+<!-- 3 -->
+<section class="slide" data-t="90">
+  <div class="kicker">Natureza do estudo</div>
+  <h2>Um estudo para mapear, mostrar e suscitar</h2>
+  <div class="row" style="margin-bottom:24px">
+    <div class="card" style="flex:1;border-top:5px solid var(--navy2)"><div class="big" style="font-size:40px">Mapear</div><p style="margin-top:10px">Dimensionar e periodizar a produção que usa o rótulo “política judiciária”.</p></div>
+    <div class="card" style="flex:1;border-top:5px solid var(--navy)"><div class="big" style="font-size:40px">Mostrar</div><p style="margin-top:10px">Aplicar a acepção programática ao portfólio das 40 PJNP por um índice auditável.</p></div>
+    <div class="card" style="flex:1;border-top:5px solid var(--hip)"><div class="big" style="font-size:40px;color:var(--hip)">Suscitar</div><p style="margin-top:10px">Converter limites em hipóteses testáveis e numa agenda de pesquisa.</p></div>
+  </div>
+  <div class="card" style="background:#f0f2f6">
+    <h3>Fora do escopo, por desenho</h3>
+    <p>Efetividade · impacto social · qualidade da implementação · mudança comportamental nos tribunais · qualidade do monitoramento</p>
+  </div>
+  <aside>Combinar o contrato com a plateia logo aqui. Tudo o que vem depois é exploratório e descritivo. Os limites aparecerão adiante, de forma explícita, como ponto de partida para hipóteses.</aside>
+</section>
+
+<!-- 4 -->
+<section class="slide" data-t="120">
+  <div class="kicker">Desenho de pesquisa</div>
+  <h2>Uma cadeia de derivação em duas etapas</h2>
+  <div class="chain">
+    <div class="step e1"><div class="num">ETAPA 1</div><h3>Bibliometria multibase</h3><p>OpenAlex, Scopus, Semantic Scholar, Crossref. PRISMA adaptado. 2000–2026.</p><div class="prod">Produto: anéis nuclear e estendido</div></div>
+    <div class="arr">›</div>
+    <div class="step e2"><div class="num">ACHADO</div><h3>Polissemia</h3><p>O rótulo designa objetos distintos: programático, comportamental, doutrinário.</p><div class="prod">Produto: quadro das três acepções</div></div>
+    <div class="arr">›</div>
+    <div class="step e3"><div class="num">ESCOLHA</div><h3>Acepção programática</h3><p>A única operacionalizável por atributos cadastrais do painel.</p><div class="prod">Produto: três dimensões</div></div>
+    <div class="arr">›</div>
+    <div class="step e4"><div class="num">ETAPA 2</div><h3>Painel PJNP</h3><p>40 políticas, 253 iniciativas, 96 colegiados.</p><div class="prod">Produto: variáveis binárias</div></div>
+    <div class="arr">›</div>
+    <div class="step e5"><div class="num">ÍNDICE</div><h3>IMO-PJNP</h3><p>Escala 0–100, pesos normativos e auditáveis.</p><div class="prod">Produto: diagnóstico do portfólio</div></div>
+  </div>
+  <div class="quote" style="margin-top:34px">A cartografia não valida o índice. Ela restringe o que o índice pode medir.</div>
+  <aside>7.161 registros identificados, 4.926 incluídos. Anel lexical bruto de 170 registros com a expressão exata. A triagem semântica reclassificou 55 e deixou 115 no núcleo. Coleta em 22 e 23 de abril de 2026, semente 42, codebook depositado.</aside>
+</section>
+
+<!-- 5 -->
+<section class="slide" data-t="90">
+  <div class="kicker">Achado 1 · RQ1 e RQ2</div>
+  <h2>Um campo pequeno, disperso e em aceleração</h2>
+  <div class="row grow">
+    <div class="col" style="flex:.9;gap:22px">
+      <div><div class="big">115 <small>de 4.926</small></div><div class="lbl">registros no anel nuclear (2,3% do corpus)</div></div>
+      <div><div class="big">78</div><div class="lbl">periódicos distintos no núcleo, sem veículo de convergência</div></div>
+      <div><div class="big">0</div><div class="lbl">mediana de citações no núcleo (corpus completo: 1)</div></div>
+    </div>
+    <div class="col" style="flex:1.25">
+      <h3>Registros do anel nuclear por quinquênio</h3>
+      <div class="vchart">
+        <div class="c"><div class="v">7<small>1,2%</small></div><div class="b" style="height:13%"></div></div>
+        <div class="c"><div class="v">7<small>1,0%</small></div><div class="b" style="height:13%"></div></div>
+        <div class="c"><div class="v">12<small>1,5%</small></div><div class="b" style="height:23%"></div></div>
+        <div class="c"><div class="v">34<small>3,3%</small></div><div class="b" style="height:65%"></div></div>
+        <div class="c"><div class="v">52<small>3,2%</small></div><div class="b" style="height:100%"></div></div>
+      </div>
+      <div class="vlabels"><span>2000–04</span><span>2005–09</span><span>2010–14</span><span>2015–19</span><span>2020–25</span></div>
+      <p class="muted" style="font-size:15px">Percentual: participação do núcleo no total do quinquênio.</p>
+    </div>
+  </div>
+  <aside>A Lei de Bradford mostra ausência de núcleo editorial. A autoria é pulverizada e a sobreposição entre bases é baixa. A inflexão depois de 2014 é tratada como hipótese de alinhamento com os marcos do CNJ, sem afirmação causal. O campo vizinho já tem um espaço de convergência: o International Journal for Court Administration, com 133 artigos no anel estendido.</aside>
+</section>
+
+<!-- 6 -->
+<section class="slide" data-t="120">
+  <div class="kicker">Achado 2 · Polissemia mensurada</div>
+  <h2>Um rótulo, três objetos e um grande resíduo</h2>
+  <div class="row grow">
+    <div class="col" style="flex:1.35;justify-content:center">
+      <p class="muted" style="font-size:15px;margin-bottom:4px">Anel lexical bruto, N = 170 registros com a expressão exata</p>
+      <div class="bars">
+        <div class="bar"><div class="nm">Programática</div><div class="tr"><div class="fl" style="width:49.4%"></div></div><div class="vl">22,4% <span>(38)</span></div></div>
+        <div class="bar"><div class="nm">Comportamental</div><div class="tr"><div class="fl" style="width:53.2%;background:#4f77b0"></div></div><div class="vl">24,1% <span>(41)</span></div></div>
+        <div class="bar"><div class="nm">Doutrinária</div><div class="tr"><div class="fl" style="width:18.1%;background:#6c8ebf"></div></div><div class="vl">8,2% <span>(14)</span></div></div>
+        <div class="bar"><div class="nm">Indeterminada</div><div class="tr"><div class="fl hatch" style="width:100%"></div></div><div class="vl">45,3% <span>(77)</span></div></div>
+      </div>
+    </div>
+    <div class="col" style="flex:1">
+      <div class="card"><h3>Coexistência</h3><p>Nenhuma acepção domina. Os objetos são distintos: programas de conselhos, comportamento decisório e teoria da função jurisdicional.</p></div>
+      <div class="card" style="border-left:6px solid var(--lim)"><h3 style="color:var(--lim)">O resíduo de 45%</h3><p>Reflete metadados pobres: só 9,6% do núcleo tem resumo. É limite de observação e aponta para a agenda.</p><div style="margin-top:8px"><span class="pill p-hip">H4</span><span class="pill p-ag">A2</span></div></div>
+    </div>
+  </div>
+  <aside>A classificação usou regra determinística sobre título, resumo e periódico, nessa ordem. A restrição programática retirou 40 dos 41 registros comportamentais. Ficaram no núcleo 38 programáticos, 13 doutrinários, 1 comportamental e 63 indeterminados. Mostrar o resíduo de frente: ele é o achado mais incômodo e o mais útil.</aside>
+</section>
+
+<!-- 7 -->
+<section class="slide" data-t="90">
+  <div class="kicker">Do conceito ao índice</div>
+  <h2>IMO-PJNP: Índice de Maturidade Observável</h2>
+  <div class="formula">IMO = <b class="m">40</b>·M + <b class="g">35</b>·G + <b class="a">25</b>·A</div>
+  <div class="row">
+    <div class="card dim" style="flex:1;border-top-color:#2b4c7e"><div class="w" style="color:#2b4c7e">40%</div><h3 style="margin-top:8px">M · Rastreabilidade do monitoramento</h3><ul><li>Link de monitoramento registrado</li></ul><p class="lbl">Behn; Moynihan & Pandey</p></div>
+    <div class="card dim" style="flex:1;border-top-color:#5b4a9e"><div class="w" style="color:#5b4a9e">35%</div><h3 style="margin-top:8px">G · Governança formal</h3><ul><li>Coordenador</li><li>Supervisor</li><li>Gerente</li></ul></div>
+    <div class="card dim" style="flex:1;border-top-color:#0f7a6c"><div class="w" style="color:#0f7a6c">25%</div><h3 style="margin-top:8px">A · Alinhamento estratégico</h3><ul><li>Meta nacional · ODS</li><li>Macrodesafio · Objetivo estratégico</li></ul></div>
+  </div>
+  <p class="muted" style="font-size:16px;margin-top:18px">Variáveis binárias. Sem imputação. Ausência significa ausência de registro no painel. Produtos, conclusão e colegiados ficam fora para evitar circularidade.</p>
+  <aside>Pesos normativos, teoricamente informados e auditáveis, em lógica multicritério fraca. Não houve painel de especialistas, AHP ou estimação empírica. Isso vai reaparecer nos limites e na agenda.</aside>
+</section>
+
+<!-- 8 -->
+<section class="slide" data-t="90">
+  <div class="kicker">Achado 3 · RQ3</div>
+  <h2>Um portfólio heterogêneo e pouco documentado</h2>
+  <div class="row grow">
+    <div class="col" style="flex:1.3;justify-content:center">
+      <p class="muted" style="font-size:15px;margin-bottom:4px">Médias das 40 PJNP (escala 0–100)</p>
+      <div class="bars">
+        <div class="bar"><div class="nm">IMO-PJNP</div><div class="tr"><div class="fl" style="width:55.97%;background:var(--navy)"></div></div><div class="vl">55,97</div></div>
+        <div class="bar"><div class="nm">Monitoramento</div><div class="tr"><div class="fl" style="width:57.5%;background:#2b4c7e"></div></div><div class="vl">57,50</div></div>
+        <div class="bar"><div class="nm">Governança</div><div class="tr"><div class="fl" style="width:37.5%;background:#5b4a9e"></div></div><div class="vl">37,50</div></div>
+        <div class="bar"><div class="nm">Alinhamento</div><div class="tr"><div class="fl" style="width:79.38%;background:#0f7a6c"></div></div><div class="vl">79,38</div></div>
+      </div>
+    </div>
+    <div class="col" style="flex:1">
+      <div class="row" style="gap:16px">
+        <div class="card" style="flex:1"><div class="big" style="font-size:52px">11</div><div class="lbl">políticas sem nenhum atributo do índice base</div></div>
+        <div class="card" style="flex:1"><div class="big" style="font-size:52px">2</div><div class="lbl">políticas com todos os atributos</div></div>
+      </div>
+      <div class="card">
+        <h3>Campos mais vazios</h3>
+        <p style="font-size:18px">Meta Nacional ausente em <strong>82,5%</strong><br>Supervisor ausente em <strong>70%</strong></p>
+      </div>
+    </div>
+  </div>
+  <aside>40 políticas, 253 iniciativas, 96 colegiados. Governança é a área mais frequente, com 13 políticas. Baixo registro indica menor observabilidade e pede validação cadastral antes de qualquer inferência sobre capacidade institucional.</aside>
+</section>
+
+<!-- 9 -->
+<section class="slide" data-t="120">
+  <div class="kicker">Achado 4 · RQ4</div>
+  <h2>Documentação e entrega seguem caminhos próprios</h2>
+  <div class="row grow">
+    <div class="col" style="flex:1">
+      <h3>IMO-PJNP e resultados registrados (bivariado, HC1)</h3>
+      <table>
+        <tr><th>Resultado</th><th class="num">β padr.</th><th class="num">p</th></tr>
+        <tr><td>% iniciativas com produto</td><td class="num">−0,09</td><td class="num">0,57</td></tr>
+        <tr><td>% iniciativas concluídas</td><td class="num">0,04</td><td class="num">0,79</td></tr>
+        <tr class="hl"><td>Número de iniciativas</td><td class="num">0,32</td><td class="num">0,027</td></tr>
+      </table>
+      <p style="font-size:17px;margin-top:6px">O índice acompanha o volume registrado. A entrega segue outra lógica.</p>
+    </div>
+    <div class="col" style="flex:1.1">
+      <h3>Clusters contrastantes</h3>
+      <table>
+        <tr><th>Cluster</th><th class="num">IMO</th><th class="num">% produto</th><th class="num">% concluído</th></tr>
+        <tr><td>4 · documentado</td><td class="num">83,6</td><td class="num">38,7%</td><td class="num">56,7%</td></tr>
+        <tr class="hl2"><td>5 · entregador</td><td class="num">33,1</td><td class="num">56,6%</td><td class="num">74,1%</td></tr>
+        <tr class="hl2"><td>2 · pouco visível</td><td class="num">23,9</td><td class="num">35,4%</td><td class="num">47,3%</td></tr>
+      </table>
+      <p style="font-size:17px;margin-top:6px">As políticas que mais entregam estão entre as menos documentadas.</p>
+      <div><span class="pill p-hip">H2</span><span class="pill p-hip">H3</span><span class="pill p-ag">A4</span></div>
+    </div>
+  </div>
+  <aside>Este é o achado mais provocativo. Uma política pode estar bem documentada e registrar poucos produtos. Outra pode entregar muito com cadastro incompleto. O agrupamento é heurístico, com k igual a 6 e silhouette de 0,18. Os perfis servem para escolher casos de validação, sem pretensão de tipologia.</aside>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-t="120">
+  <div class="kicker">Limites declarados</div>
+  <h2>Cada limite abre uma pergunta</h2>
+  <div class="lims">
+    <div class="lim"><h3>Dados</h3><ul><li>Web of Science fora da coleta</li><li>Resumo em 14,8% do corpus e 9,6% do núcleo</li><li>Co-citação apoiada em 27% do núcleo</li></ul><div class="to">Origina <span class="pill p-hip">H4</span><span class="pill p-ag">A2</span></div></div>
+    <div class="lim"><h3>Classificação</h3><ul><li>Decisão apoiada sobretudo no título</li><li>Sem dupla codificação independente</li><li>45% de acepções indeterminadas</li></ul><div class="to">Origina <span class="pill p-hip">H4</span><span class="pill p-ag">A2</span></div></div>
+    <div class="lim"><h3>Índice</h3><ul><li>Pesos normativos ainda sem validação empírica</li><li>Alinhamento com mínimo de 75: só a Meta Nacional varia</li><li>Teste de sensibilidade com critério brando</li></ul><div class="to">Origina <span class="pill p-hip">H5</span><span class="pill p-ag">A3</span></div></div>
+    <div class="lim"><h3>Inferência</h3><ul><li>Censo de 40 políticas e modelos bivariados</li><li>Clusters fracos (silhouette 0,18)</li><li>Zero significa ausência de registro no painel</li></ul><div class="to">Origina <span class="pill p-hip">H2</span><span class="pill p-hip">H3</span><span class="pill p-ag">A1</span><span class="pill p-ag">A4</span></div></div>
+  </div>
+  <aside>Falar com tranquilidade. Os limites estão no artigo e foram assumidos por desenho. O alinhamento estratégico tem mínimo de 75 porque três dos quatro atributos aparecem em todas as políticas. A dimensão depende, na prática, da Meta Nacional. A sensibilidade usou o critério de mudança acima de 10 posições, que é generoso para um ranking de 40.</aside>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-t="120">
+  <div class="kicker">Produto central</div>
+  <h2 style="margin-bottom:18px">Hipóteses suscitadas</h2>
+  <div class="hyps">
+    <div class="hyp"><div class="id">H1</div><p>O crescimento do campo após 2014 acompanha a formalização normativa do CNJ.</p><div class="or">Origem: série temporal e marcos <b>Res. 198/2014 e 325/2020</b></div></div>
+    <div class="hyp"><div class="id">H2</div><p>IMO alto reflete capacidade de registro mais do que densidade de ação.</p><div class="or">Origem: associação só com <b>número de iniciativas</b></div></div>
+    <div class="hyp"><div class="id">H3</div><p>Políticas pouco documentadas e muito entregadoras operam com governança informal.</p><div class="or">Origem: <b>clusters 2 e 5</b></div></div>
+    <div class="hyp"><div class="id">H4</div><p>O núcleo programático ainda se apoia intelectualmente na tradição comportamental.</p><div class="or">Origem: co-citação com <b>Tate, Priest, Gryski</b></div></div>
+    <div class="hyp"><div class="id">H5</div><p>O alinhamento estratégico funciona como requisito de cadastro, com baixo poder discriminante.</p><div class="or">Origem: <b>mínimo de 75</b> na dimensão</div></div>
+  </div>
+  <aside>Este é o produto científico do estudo. Cada hipótese nasce de um achado ou de um limite visto antes. H4 vem da co-citação: as obras mais citadas pelo núcleo tratam de comportamento decisório de juízes e de seleção de litígios.</aside>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-t="90">
+  <div class="kicker">Agenda futura</div>
+  <h2 style="margin-bottom:18px">Seis frentes de continuidade</h2>
+  <div class="agenda">
+    <div class="ag"><div class="id">A1</div><h3>Auditoria cadastral</h3><p>Validar com os gestores das PJNP se cada zero é ausência do atributo ou do registro.</p></div>
+    <div class="ag"><div class="id">A2</div><h3>Bibliometria ampliada</h3><p>Incluir Web of Science, texto completo e dupla codificação das acepções.</p></div>
+    <div class="ag"><div class="id">A3</div><h3>Validação dos pesos</h3><p>Painel de especialistas ou AHP. Redesenho da dimensão de alinhamento.</p></div>
+    <div class="ag"><div class="id">A4</div><h3>Estudos de caso</h3><p>Comparar clusters contrastantes, como o 4 e o 5, para testar H2 e H3.</p></div>
+    <div class="ag"><div class="id">A5</div><h3>Efetividade</h3><p>Ligar o painel a dados dos tribunais (DataJud) e a teorias de mudança.</p></div>
+    <div class="ag"><div class="id">A6</div><h3>Painel longitudinal</h3><p>Acompanhar as PJNP depois do Projeto ELO e da IN CNJ 113/2026 para testar H1.</p></div>
+  </div>
+  <aside>Convidar a plateia a se juntar à agenda. Tribunais, escolas judiciais e pesquisadores podem contribuir com dados de implementação que o painel não capta.</aside>
+</section>
+
+<!-- 13 -->
+<section class="slide s-end" data-t="30">
+  <div class="kicker" style="color:#8fb3e6">Mensagem final</div>
+  <div class="quote">Antes de medir efetividade, é preciso saber o que se pode observar.</div>
+  <p style="margin-top:40px;font-size:20px">Igor Caires Machado · CNJ / ENAJU</p>
+  <p style="font-size:16px;color:#a9bddb">Dados, códigos e codebooks em repositório público (Machado et al., 2026)</p>
+  <aside>Encerrar e abrir para perguntas. Os slides de apêndice trazem o quadro das acepções, a sensibilidade dos pesos e o perfil completo dos clusters.</aside>
+</section>
+
+<!-- Apêndice A -->
+<section class="slide" data-t="0">
+  <span class="app-tag">APÊNDICE A</span>
+  <div class="kicker">Reserva para perguntas</div>
+  <h2>Três acepções e o alcance do índice</h2>
+  <table>
+    <tr><th>Acepção</th><th>Definição e tradição</th><th>Evidência observável</th><th>No IMO-PJNP</th></tr>
+    <tr class="hl"><td>Programática</td><td>Programa, plano, portfólio institucional. CNJ, políticas públicas, governança judicial.</td><td>Objetivos, responsáveis, vinculação estratégica, link de monitoramento</td><td>Mensurada</td></tr>
+    <tr><td>Comportamental</td><td>Indução de práticas e decisões dos atores judiciais. Ciência política anglo-saxã.</td><td>Protocolos, capacitações, rotinas, dados de uso</td><td>Fora do alcance</td></tr>
+    <tr><td>Doutrinária</td><td>Orientação normativa sobre o papel do Judiciário. Tradições russa, chinesa e islâmica.</td><td>Exposições de motivos, considerandos, jurisprudência administrativa</td><td>Fora do alcance</td></tr>
+  </table>
+  <p class="muted" style="font-size:16px;margin-top:18px">Uma política pode ter maturidade programática alta e efeito comportamental nulo. O índice não distingue os dois casos.</p>
+  <aside>Usar se perguntarem por que o índice não mede comportamento ou doutrina.</aside>
+</section>
+
+<!-- Apêndice B -->
+<section class="slide" data-t="0">
+  <span class="app-tag">APÊNDICE B</span>
+  <div class="kicker">Reserva para perguntas</div>
+  <h2>Sensibilidade dos pesos e perfis dos clusters</h2>
+  <div class="row grow">
+    <div class="col" style="flex:.8">
+      <table>
+        <tr><th>Especificação</th><th>M/G/A</th><th class="num">Spearman</th></tr>
+        <tr><td>Atual</td><td>40/35/25</td><td class="num">·</td></tr>
+        <tr><td>Pesos iguais</td><td>33/33/33</td><td class="num">1,000</td></tr>
+        <tr><td>Governança maior</td><td>30/40/30</td><td class="num">1,000</td></tr>
+      </table>
+      <p style="font-size:16px">Nenhuma política mudou mais de 10 posições. A estrutura discreta dos componentes explica parte da estabilidade.</p>
+    </div>
+    <div class="col" style="flex:1.2">
+      <table>
+        <tr><th>Cl.</th><th class="num">N</th><th class="num">IMO</th><th class="num">% prod.</th><th class="num">% concl.</th><th class="num">Inic.</th><th class="num">Coleg.</th></tr>
+        <tr><td>1</td><td class="num">13</td><td class="num">62,2</td><td class="num">8,0</td><td class="num">40,2</td><td class="num">7,5</td><td class="num">2,3</td></tr>
+        <tr><td>2</td><td class="num">8</td><td class="num">23,9</td><td class="num">35,4</td><td class="num">47,3</td><td class="num">2,4</td><td class="num">2,0</td></tr>
+        <tr><td>3</td><td class="num">2</td><td class="num">82,5</td><td class="num">22,7</td><td class="num">25,0</td><td class="num">11,5</td><td class="num">4,0</td></tr>
+        <tr><td>4</td><td class="num">8</td><td class="num">83,6</td><td class="num">38,7</td><td class="num">56,7</td><td class="num">9,5</td><td class="num">3,0</td></tr>
+        <tr><td>5</td><td class="num">6</td><td class="num">33,1</td><td class="num">56,6</td><td class="num">74,1</td><td class="num">4,8</td><td class="num">1,8</td></tr>
+        <tr><td>6</td><td class="num">3</td><td class="num">68,8</td><td class="num">0,0</td><td class="num">33,3</td><td class="num">3,0</td><td class="num">2,3</td></tr>
+      </table>
+      <p class="muted" style="font-size:14px">k = 6 · silhouette 0,18 · uso heurístico</p>
+    </div>
+  </div>
+  <aside>Usar se perguntarem sobre robustez dos pesos ou sobre os grupos. Reconhecer que um critério mais exigente, como Kendall ou qualquer troca de posição, está na agenda A3.</aside>
+</section>
+
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="help" id="help">← → navegar · N notas · T cronômetro · F tela cheia</div>
+<div class="hud"><span id="clock"></span></div>
+<div class="notes" id="notes"></div>
+<button class="navbtn prev" id="prev" aria-label="Slide anterior">‹</button>
+<button class="navbtn next" id="next" aria-label="Próximo slide">›</button>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const total=slides.length, main=slides.filter(s=>+s.dataset.t>0).length;
+  let i=0, t0=null, timer=null;
+  slides.forEach((s,k)=>s.dataset.n=(k<main?(k+1)+' / '+main:''));
+  const fmt=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+  const cum=k=>slides.slice(0,k+1).reduce((a,s)=>a+(+s.dataset.t||0),0);
+  function fit(){
+    const sc=Math.min(innerWidth/1280,innerHeight/720)*0.98;
+    slides.forEach(s=>s.style.transform='scale('+sc+')');
+  }
+  function show(n){
+    i=Math.max(0,Math.min(total-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    document.getElementById('progress').style.width=((i+1)/total*100)+'%';
+    const a=slides[i].querySelector('aside');
+    const t=+slides[i].dataset.t;
+    document.getElementById('notes').innerHTML='<div class="meta">'+(t?('Slide '+(i+1)+' · tempo-alvo '+fmt(t)+' · acumulado '+fmt(cum(i))+' de 20:00'):'Apêndice')+'</div>'+(a?a.innerHTML:'');
+    if(location.hash!=='#'+(i+1)) history.replaceState(null,'','#'+(i+1));
+  }
+  function tick(){document.getElementById('clock').textContent='⏱ '+fmt((Date.now()-t0)/1000)+' / 20:00';}
+  function toggleTimer(){
+    const c=document.getElementById('clock');
+    if(timer){clearInterval(timer);timer=null;c.classList.remove('on');return;}
+    t0=Date.now();tick();timer=setInterval(tick,1000);c.classList.add('on');
+  }
+  addEventListener('keydown',e=>{
+    const k=e.key;
+    if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();show(i+1)}
+    else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();show(i-1)}
+    else if(k==='Home')show(0); else if(k==='End')show(total-1);
+    else if(k==='n'||k==='N')document.getElementById('notes').classList.toggle('on');
+    else if(k==='t'||k==='T')toggleTimer();
+    else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}
+    else if(k==='h'||k==='H'){const h=document.getElementById('help');h.style.display=h.style.display==='none'?'':'none'}
+  });
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.getElementById('next').onclick=()=>show(i+1);
+  let sx=null;
+  addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  addEventListener('touchend',e=>{if(sx===null)return;const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(i+(d<0?1:-1));sx=null});
+  addEventListener('resize',fit);
+  addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1));if(n&&n-1!==i)show(n-1)});
+  setTimeout(()=>{document.getElementById('help').style.display='none'},6000);
+  fit();
+  show((parseInt(location.hash.slice(1))||1)-1);
+})();
+</script>
+</body>
+</html>
