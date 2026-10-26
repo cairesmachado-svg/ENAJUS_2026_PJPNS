@@ -35,8 +35,8 @@ Toque e deslize funcionam em tablet. Cada slide tem endereço próprio (`#5`, `#
 
 ## Estrutura
 
-13 slides principais (20 minutos) e 2 de apêndice para perguntas.
-Código de cores: laranja para limites, verde para hipóteses (H1 a H5), roxo para agenda (A1 a A6).
+14 slides principais (20 minutos) e 2 de apêndice para perguntas.
+Código de cores: laranja para limites, verde para hipóteses (H1 a H5), roxo para eixos da agenda (A1 a A6).
 
 ## PDF de segurança
 
