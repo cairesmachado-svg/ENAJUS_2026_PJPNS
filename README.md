@@ -7,7 +7,7 @@ Arquivo único, sem dependências além das fontes do Google Fonts. Abre offline
 ## Publicar no GitHub Pages
 
 1. Crie um repositório, por exemplo `enajus-pjnp`.
-2. Envie `index.html`, `.nojekyll` e este `README.md` para a raiz da branch `main`.
+2. Envie `index.html`, `contatos.html`, `.nojekyll` e este `README.md` para a raiz da branch `main`.
 3. Em **Settings › Pages**, escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`.
 4. O endereço será `https://<seu-usuario>.github.io/enajus-pjnp/`.
 
@@ -35,8 +35,8 @@ Toque e deslize funcionam em tablet. Cada slide tem endereço próprio (`#5`, `#
 
 ## Estrutura
 
-14 slides principais (20 minutos) e 2 de apêndice para perguntas.
-Código de cores: laranja para limites, verde para hipóteses (H1 a H5), roxo para eixos da agenda (A1 a A6).
+17 slides principais em quatro atos (20 minutos) e 3 de apêndice para perguntas. A página `contatos.html` é o destino do QR code do slide final.
+Código de cores: verde-petróleo para hipóteses (H1 a H5), dourado para eixos da agenda (A1 a A6), terracota para limites. Paleta baseada nas cores de apoio do manual de marca do CNJ.
 
 ## PDF de segurança
 

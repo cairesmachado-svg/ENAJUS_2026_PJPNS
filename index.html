@@ -3,452 +3,483 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Política Judiciária como Campo Emergente · ENAJUS</title>
-<meta name="description" content="Apresentação do artigo Política Judiciária como Campo Emergente: da cartografia bibliométrica à maturidade observável das PJNP.">
+<title>Política Judiciária como Campo Emergente · ENAJUS 2026</title>
+<meta name="description" content="Apresentação do artigo Política Judiciária como Campo Emergente: da cartografia bibliométrica à maturidade observável das PJNP. ENAJUS 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14213a; --ink2:#3d4a63; --mute:#6b7689; --line:#d9dee7; --bg:#f6f4ef; --paper:#ffffff;
-  --navy:#1d3557; --navy2:#2b4c7e;
-  --lim:#b5651d; --lim-bg:#fbefe3;      /* limite */
-  --hip:#0f7a6c; --hip-bg:#e2f3f0;      /* hipótese */
-  --ag:#5b4a9e;  --ag-bg:#ece9f7;       /* agenda */
+  --ink:#1a171b; --ink2:#3d3e42; --mute:#707173; --line:#dedad1; --bg:#f7f5f0; --paper:#ffffff; --tint:#eeece6;
+  --teal:#00857d; --teal-l:#009d94; --teal-bg:#e1f2f0;
+  --ouro:#b8862b; --ouro-bg:#f6eedc;
+  --terra:#b5532d; --terra-bg:#f8e9e2;
   --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
   --sans:Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:#0d1626;color:var(--ink);font-family:var(--sans);overflow:hidden}
+html,body{height:100%;background:#141315;color:var(--ink);font-family:var(--sans);overflow:hidden}
 .deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-.slide{position:absolute;left:50%;top:50%;width:1280px;height:720px;margin:-360px 0 0 -640px;
-  background:var(--bg);padding:56px 72px 60px;display:none;flex-direction:column;overflow:hidden;
-  transform-origin:center center;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.slide{position:absolute;left:50%;top:50%;width:1280px;height:720px;margin:-360px 0 0 -640px;background:var(--bg);
+  padding:50px 72px 56px;display:none;flex-direction:column;overflow:hidden;transform-origin:center center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .slide.active{display:flex}
-.slide::after{content:attr(data-n);position:absolute;right:28px;bottom:20px;font-size:13px;color:var(--mute);letter-spacing:.04em}
-.slide .foot{position:absolute;left:72px;bottom:20px;font-size:12px;color:var(--mute);letter-spacing:.03em}
-.kicker{font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy2);margin-bottom:10px}
-h1{font-family:var(--serif);font-weight:700;font-size:54px;line-height:1.08;color:var(--navy)}
-h2{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.12;color:var(--navy);margin-bottom:26px}
-h3{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:8px}
-p,li{font-size:20px;line-height:1.45;color:var(--ink2)}
+.slide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(var(--teal),var(--teal) 70%,var(--ouro) 70%)}
+.slide::after{content:attr(data-n);position:absolute;right:28px;bottom:18px;font-size:13px;color:var(--mute);letter-spacing:.04em}
+.kicker{font-size:13.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.kicker .act{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;background:var(--ink);color:#fff;font-family:var(--serif);font-size:14px;letter-spacing:0}
+h1{font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.08}
+h2{font-family:var(--serif);font-weight:700;font-size:38px;line-height:1.12;color:var(--ink);margin-bottom:20px}
+h3{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px}
+p,li{font-size:19px;line-height:1.45;color:var(--ink2)}
+b,strong{color:var(--ink)}
 .grow{flex:1;min-height:0}
-.row{display:flex;gap:28px}
-.col{display:flex;flex-direction:column;gap:18px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
-.pill{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px;margin:2px 4px 2px 0}
-.p-lim{background:var(--lim-bg);color:var(--lim)} .p-hip{background:var(--hip-bg);color:var(--hip)} .p-ag{background:var(--ag-bg);color:var(--ag)}
-.big{font-family:var(--serif);font-weight:700;font-size:60px;line-height:1;color:var(--navy)}
-.big small{font-size:24px;color:var(--mute);font-weight:600}
-.lbl{font-size:16px;color:var(--mute);margin-top:6px;line-height:1.35}
-.quote{font-family:var(--serif);font-size:26px;line-height:1.35;color:var(--navy);border-left:5px solid var(--navy2);padding:6px 0 6px 22px}
-.muted{color:var(--mute)}
-strong{color:var(--ink)}
-
-/* title */
-.s-title{background:linear-gradient(135deg,#1d3557 0%,#203f69 60%,#2b4c7e 100%);color:#fff}
-.s-title h1{color:#fff;font-size:60px;max-width:1000px}
-.s-title .sub{font-family:var(--serif);font-size:28px;color:#cfdcf0;margin-top:18px;max-width:950px;line-height:1.3}
-.s-title .authors{font-size:19px;color:#e7eef9;margin-top:auto;line-height:1.6}
-.s-title .inst{font-size:16px;color:#a9bddb;letter-spacing:.04em}
-.s-title .tag{display:inline-block;border:1.5px solid #8fb3e6;color:#cfe0f7;padding:6px 14px;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:26px;align-self:flex-start}
-.s-title::after{color:#a9bddb}
-
-/* timeline */
-.tl{display:flex;flex-direction:column;gap:14px}
-.tl .it{display:flex;gap:18px;align-items:flex-start}
-.tl .yr{font-family:var(--serif);font-weight:700;font-size:26px;color:var(--navy2);min-width:74px}
-.tl .tx{font-size:18px;line-height:1.4;color:var(--ink2);padding-top:4px}
-
-/* chain */
-.chain{display:flex;align-items:stretch;gap:0}
-.chain .step{flex:1;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 18px;position:relative}
-.chain .step .num{font-size:13px;font-weight:700;color:var(--navy2);letter-spacing:.1em}
-.chain .step h3{font-size:21px;margin:6px 0 8px}
-.chain .step p{font-size:17px;line-height:1.4}
-.chain .step .prod{margin-top:10px;font-size:13.5px;color:var(--mute);border-top:1px dashed var(--line);padding-top:8px}
-.chain .arr{width:34px;display:flex;align-items:center;justify-content:center;color:var(--navy2);font-size:26px;font-weight:700}
-.chain .step.e1{border-top:5px solid #6c8ebf}.chain .step.e2{border-top:5px solid #4f77b0}.chain .step.e3{border-top:5px solid #2b4c7e}.chain .step.e4{border-top:5px solid #1d3557}.chain .step.e5{border-top:5px solid #0f2340}
-
-/* bars */
-.bars{display:flex;flex-direction:column;gap:16px}
-.bar{display:grid;grid-template-columns:200px 1fr 110px;align-items:center;gap:14px}
-.bar .nm{font-size:18px;font-weight:600;color:var(--ink)}
-.bar .tr{height:34px;background:#e8ebf1;border-radius:8px;overflow:hidden}
-.bar .fl{height:100%;background:var(--navy2);border-radius:8px}
-.bar .vl{font-size:18px;font-weight:700;color:var(--ink);text-align:right}
-.bar .vl span{font-weight:500;color:var(--mute);font-size:14px}
-.fl.hatch{background:repeating-linear-gradient(45deg,#b9c3d4 0 8px,#d2d9e5 8px 16px)}
-
-/* vertical column chart */
-.vchart{display:flex;align-items:flex-end;gap:22px;height:250px;padding:0 6px;border-bottom:2px solid var(--line)}
-.vchart .c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
-.vchart .c .b{width:100%;background:var(--navy2);border-radius:6px 6px 0 0}
-.vchart .c .v{font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
-.vchart .c .v small{display:block;font-weight:500;color:var(--mute);font-size:12.5px;text-align:center}
-.vlabels{display:flex;gap:22px;padding:8px 6px 0}
-.vlabels span{flex:1;text-align:center;font-size:14px;color:var(--mute)}
-
-/* formula */
-.formula{font-family:var(--serif);font-size:44px;color:var(--navy);text-align:center;padding:18px 0 26px;letter-spacing:.01em}
-.formula b{font-weight:700}
-.formula .m{color:#2b4c7e}.formula .g{color:#5b4a9e}.formula .a{color:#0f7a6c}
-.dim{border-top:6px solid}
-.dim .w{font-family:var(--serif);font-size:44px;font-weight:700;line-height:1}
-.dim ul{margin-top:10px;padding-left:20px}
-.dim li{font-size:16.5px;line-height:1.45}
-
-/* table */
-table{border-collapse:collapse;width:100%}
-th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-size:17px;color:var(--ink2)}
-th{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-tr.hl td{background:#eef5ff;color:var(--ink);font-weight:600}
-tr.hl2 td{background:var(--hip-bg);color:var(--ink);font-weight:600}
-
-/* limits */
-.lims{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.lim{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--lim);border-radius:12px;padding:16px 20px}
-.lim h3{color:var(--lim);font-size:18px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
-.lim ul{padding-left:18px;margin-bottom:8px}
-.lim li{font-size:16.5px;line-height:1.42}
-.lim .to{font-size:14px;color:var(--mute)}
-
-.hyps{display:flex;flex-direction:column;gap:12px}
-.hyp{display:grid;grid-template-columns:64px 1fr 230px;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--hip);border-radius:12px;padding:13px 18px}
-.hyp .id{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--hip)}
-.hyp p{font-size:18px;line-height:1.38;color:var(--ink)}
-.hyp .or{font-size:13.5px;color:var(--mute);line-height:1.35}
-.hyp .or b{color:var(--lim)}
-
-.agenda{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.ag{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--ag);border-radius:12px;padding:16px 20px}
-.ag .id{font-size:13px;font-weight:700;color:var(--ag);letter-spacing:.1em}
-.ag h3{font-size:18.5px;margin:4px 0 6px}
-.ag p{font-size:15.5px;line-height:1.4}
-.ag .lk{margin-top:6px}
-
-.s-end{background:linear-gradient(135deg,#1d3557,#2b4c7e);color:#fff;justify-content:center}
-.s-end .quote{color:#fff;border-color:#8fb3e6;font-size:42px;max-width:1000px}
-.s-end p{color:#cfdcf0}
-.s-end::after{color:#a9bddb}
-
-.app-tag{position:absolute;top:22px;right:28px;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--mute);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
-
-/* UI */
-.progress{position:fixed;left:0;bottom:0;height:4px;background:#8fb3e6;transition:width .25s;z-index:5}
-.hud{position:fixed;right:14px;top:12px;z-index:6;display:flex;gap:8px;font:600 13px var(--sans)}
-.hud span{background:rgba(255,255,255,.1);color:#cfdcf0;padding:5px 10px;border-radius:8px;display:none}
-.hud span.on{display:inline-block}
-.notes{position:fixed;left:0;right:0;bottom:0;max-height:38vh;overflow:auto;background:#101b2e;color:#e6edf8;border-top:2px solid #2b4c7e;padding:16px 26px 22px;z-index:7;display:none;font-size:17px;line-height:1.55}
-.notes.on{display:block}
-.notes .meta{font-size:13px;color:#8fb3e6;letter-spacing:.06em;margin-bottom:6px;text-transform:uppercase}
-.slide aside{display:none}
-.help{position:fixed;left:14px;top:12px;z-index:6;color:#6f83a3;font:500 12px var(--sans);opacity:.8}
-.navbtn{position:fixed;bottom:14px;z-index:6;background:rgba(255,255,255,.08);color:#cfdcf0;border:0;border-radius:999px;width:42px;height:42px;font-size:20px;cursor:pointer}
-.navbtn.prev{left:14px}.navbtn.next{right:14px}
-@media (hover:hover){.navbtn{opacity:.35}.navbtn:hover{opacity:1}}
-
-
+.row{display:flex;gap:26px}
+.col{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
 .txt p{font-size:18.5px;line-height:1.5;margin-bottom:12px}
 .txt p:last-child{margin-bottom:0}
 p.sm{font-size:16.5px;line-height:1.48}
-.card h3{font-size:18px}
-.tl.small .yr{font-size:21px;min-width:60px}.tl.small .tx{font-size:15.5px;padding-top:2px}.tl.small{gap:10px;margin-bottom:6px}
-ol.obj{padding-left:26px;display:flex;flex-direction:column;gap:14px}
-ol.obj li{font-size:18.5px;line-height:1.45}
-.acc{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:16.5px;line-height:1.45;color:var(--ink2)}
+.note{font-size:13.5px;color:var(--mute);margin-top:8px}
+.lbl{font-size:15px;color:var(--mute);margin-top:4px;line-height:1.35}
+.big{font-family:var(--serif);font-weight:700;font-size:50px;line-height:1;color:var(--teal)}
+.card.stat{padding:16px 20px}
+.quote{font-family:var(--serif);font-size:25px;line-height:1.35;color:var(--ink);border-left:5px solid var(--ouro);padding:4px 0 4px 20px}
+
+/* title & end */
+.s-title{background:radial-gradient(120% 140% at 85% 10%,#1f3b39 0%,#1a171b 60%);color:#fff;justify-content:flex-start}
+.s-title::before{background:linear-gradient(var(--teal-l),var(--teal-l) 70%,var(--ouro) 70%)}
+.s-title .tag{align-self:flex-start;border:1.5px solid var(--ouro);color:#e9d3a4;padding:6px 14px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:30px}
+.s-title h1{color:#fff;max-width:1000px;font-size:62px}
+.s-title .sub{font-family:var(--serif);font-size:27px;color:#c9dedb;margin-top:18px;max-width:960px;line-height:1.3}
+.s-title .authors{margin-top:auto;font-size:18.5px;color:#eceae4;line-height:1.6}
+.s-title .inst{font-size:15.5px;color:#9fb9b5;letter-spacing:.04em}
+.s-title::after,.s-end::after{color:#8fa9a5}
+.s-end{background:radial-gradient(120% 140% at 85% 10%,#1f3b39 0%,#1a171b 60%);padding-top:56px}
+.s-end::before{background:linear-gradient(var(--teal-l),var(--teal-l) 70%,var(--ouro) 70%)}
+.s-end .kicker{color:#7fd0c9}
+.s-end .quote{color:#fff;font-size:33px;border-color:var(--ouro);margin:6px 0 26px}
+.s-end .fin{color:#c9dedb;font-size:18px;line-height:1.5}
+.s-end .fin2{color:#8fa9a5;font-size:14.5px;margin-top:14px}
+.qrbox{align-items:center;background:#fff;border-radius:16px;padding:22px 22px 18px;gap:10px!important}
+.qr{width:250px;height:250px;display:block}
+.qrl{font-weight:700;font-size:17px;color:var(--ink)}
+.qru{font-size:11.5px;color:var(--mute);text-align:center;word-break:break-all}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:12px}
+.tl .it{display:flex;gap:16px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.tl .it.hl{border-color:var(--ouro);background:var(--ouro-bg)}
+.tl .yr{font-family:var(--serif);font-weight:700;font-size:23px;color:var(--teal);min-width:62px}
+.tl .it.hl .yr{color:var(--ouro)}
+.tl .tx{font-size:16.5px;line-height:1.4;color:var(--ink2);padding-top:2px}
+
+/* gap */
+.gap{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:18px;align-items:stretch}
+.gap .lit{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--ink);border-radius:12px;padding:18px 20px}
+.gap .lit p{font-size:16.5px;margin-bottom:8px}
+.gap .void{border:2.5px dashed var(--ouro);border-radius:14px;background:var(--ouro-bg);padding:20px 22px;display:flex;flex-direction:column;justify-content:center}
+.gap .vt{font-family:var(--serif);font-weight:700;font-size:28px;color:var(--ouro);margin-bottom:6px}
+.gap .void p{font-size:18.5px;color:var(--ink)}
+
+.card.num{position:relative;padding-top:20px}
+.card.num .n{font-family:var(--serif);font-weight:700;font-size:40px;color:var(--teal);line-height:1;margin-bottom:8px}
+
+/* charts */
+svg.chart{width:100%;height:auto;display:block}
+svg .ax{font:13px var(--sans);fill:#707173}
+svg .mk{font:600 12.5px var(--sans);fill:#b8862b}
+svg .bt{font:600 15px var(--sans)}
+svg .bn{font:700 25px var(--serif)}
+svg .sm2{font:italic 13px var(--sans);fill:#707173}
+.leg{display:flex;gap:18px;font-size:13.5px;color:var(--mute);align-items:center;flex-wrap:wrap}
+.leg i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.leg i.ln{height:3px;background:var(--ink);width:18px;vertical-align:3px}
+.leg i.dash{height:0;border-top:2px dashed var(--ouro);width:18px;vertical-align:3px;border-radius:0}
+
+.cited{display:flex;flex-direction:column;gap:7px}
+.cb{display:grid;grid-template-columns:1.35fr 1fr;gap:12px;align-items:center}
+.cb .ct{font-size:13.5px;line-height:1.25;color:var(--ink2)}
+.cb .ct span{color:var(--mute)}
+.cb .cbar{display:flex;align-items:center;gap:8px}
+.cb .cbar i{display:block;height:18px;background:#a9a7a0;border-radius:4px}
+.cb .cbar b{font-size:14px}
+.cb.br .ct{color:var(--ink);font-weight:600}
+.cb.br .cbar i{background:var(--ouro)}
+.cb:first-child .cbar i{background:var(--teal)}
+
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:160px 1fr 70px;align-items:center;gap:12px}
+.bar .nm{font-size:17px;font-weight:600}
+.bar .tr{height:32px;background:#e9e6df;border-radius:7px;overflow:hidden}
+.bar .fl{height:100%;border-radius:7px}
+.bar .vl{font-size:18px;font-weight:700;text-align:right}
+.fl.hatch{background:repeating-linear-gradient(45deg,#cfccc4 0 8px,#e3e0d9 8px 16px)}
+.acc{background:var(--paper);border:1px solid var(--line);border-left:5px solid;border-radius:10px;padding:11px 15px;font-size:16px;line-height:1.42;color:var(--ink2)}
+
+/* signals */
+.sign{align-self:flex-start;font-size:13.5px;font-weight:700;letter-spacing:.04em;padding:7px 12px 7px 30px;border-radius:999px;position:relative;margin-top:6px}
+.sign::before{content:"";position:absolute;left:11px;top:50%;width:11px;height:11px;margin-top:-5.5px;border-radius:50%}
+.sign.on{background:var(--teal-bg);color:var(--teal)} .sign.on::before{background:var(--teal)}
+.sign.half{background:var(--ouro-bg);color:#8a6418} .sign.half::before{background:linear-gradient(90deg,var(--ouro) 50%,transparent 50%);border:2px solid var(--ouro);width:9px;height:9px}
+.sign.off{background:var(--terra-bg);color:var(--terra)} .sign.off::before{border:2px solid var(--terra);width:9px;height:9px}
+.therm{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.th{display:flex;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.th .dot{flex:none;width:22px;height:22px;border-radius:50%;margin-top:2px}
+.th.on .dot{background:var(--teal)}
+.th.half .dot{border:3px solid var(--ouro);background:linear-gradient(90deg,var(--ouro) 50%,#fff 50%)}
+.th.off .dot{border:3px solid var(--terra);background:#fff}
+.th b{font-size:17px;display:block}
+.th .st{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.th.on .st{color:var(--teal)} .th.half .st{color:#8a6418} .th.off .st{color:var(--terra)}
+.th p{font-size:14.5px;line-height:1.4;margin-top:5px}
+
+/* bridge */
+.bridge{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:18px;margin-bottom:20px}
+.bc{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column}
+.bc p{font-size:16px;flex:1}
+.bc.dim{opacity:.62}
+.bc.main{border:2px solid var(--teal);box-shadow:0 6px 20px rgba(0,133,125,.12)}
+.bc.main h3{color:var(--teal);font-size:20px}
+.bc .dest{margin-top:12px;font-size:14px;color:var(--mute);border-top:1px dashed var(--line);padding-top:10px}
+.bc .dest.strong{border:0;padding:12px;background:var(--teal);color:#fff;font-weight:700;font-size:20px;text-align:center;border-radius:10px;font-family:var(--serif)}
+.bc .arrow{text-align:center;color:var(--teal);font-size:26px;font-weight:700;line-height:1;margin-top:8px}
+.txt-c{font-size:19px;line-height:1.5;text-align:center;max-width:1000px;margin:0 auto}
+
 .dimrow{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:17px}
 .dimrow .dot{width:14px;height:14px;border-radius:50%;margin-top:5px;flex:none}
-.dimrow .lbl{margin-top:2px;font-size:15px}
-.hyp p{font-size:17px}
-h2{margin-bottom:22px}
 
+/* limits, hypotheses, agenda */
+.pill{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:999px;margin:2px 4px 2px 0}
+.p-hip{background:var(--teal-bg);color:var(--teal)} .p-ag{background:var(--ouro-bg);color:#8a6418}
+.lims{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.lim{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--terra);border-radius:12px;padding:15px 20px}
+.lim h3{color:var(--terra);font-size:16px;letter-spacing:.06em;text-transform:uppercase}
+.lim ul{padding-left:18px;margin-bottom:8px}
+.lim li{font-size:16.5px;line-height:1.42}
+.hyps{display:flex;flex-direction:column;gap:10px}
+.hyp{display:grid;grid-template-columns:56px 1fr 210px;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--teal);border-radius:12px;padding:11px 18px}
+.hyp .id{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--teal)}
+.hyp p{font-size:16.5px;line-height:1.38;color:var(--ink)}
+.hyp .or{font-size:13px;color:var(--mute);line-height:1.35}
+.agenda{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ag{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--ouro);border-radius:12px;padding:14px 20px}
+.ag .id{font-size:13px;font-weight:700;color:#8a6418;letter-spacing:.1em}
+.ag h3{font-size:18px;margin:3px 0 4px}
+.ag p{font-size:15.5px;line-height:1.4}
+
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-size:16.5px;color:var(--ink2)}
+th{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
+td.num,th.num{text-align:right}
+tr.hl td{background:var(--teal-bg);color:var(--ink);font-weight:600}
+.formula{font-family:var(--serif);font-size:38px;text-align:center;padding:4px 0 20px}
+.app-tag{position:absolute;top:20px;right:28px;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--mute);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+.slide aside{display:none}
+
+/* UI */
+.progress{position:fixed;left:0;bottom:0;height:4px;background:var(--teal-l);transition:width .25s;z-index:5}
+.hud{position:fixed;right:14px;top:12px;z-index:6;font:600 13px var(--sans)}
+.hud span{background:rgba(255,255,255,.12);color:#e6e3dc;padding:5px 10px;border-radius:8px;display:none}
+.hud span.on{display:inline-block}
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:38vh;overflow:auto;background:#1a171b;color:#ecebe6;border-top:3px solid var(--teal);padding:16px 26px 22px;z-index:7;display:none;font-size:17px;line-height:1.55}
+.notes.on{display:block}
+.notes .meta{font-size:13px;color:#7fd0c9;letter-spacing:.06em;margin-bottom:6px;text-transform:uppercase}
+.help{position:fixed;left:14px;top:12px;z-index:6;color:#8f8d88;font:500 12px var(--sans)}
+.navbtn{position:fixed;bottom:14px;z-index:6;background:rgba(255,255,255,.1);color:#e6e3dc;border:0;border-radius:999px;width:42px;height:42px;font-size:20px;cursor:pointer}
+.navbtn.prev{left:14px}.navbtn.next{right:14px}
+@media (hover:hover){.navbtn{opacity:.35}.navbtn:hover{opacity:1}}
 @media print{
   @page{size:1280px 720px;margin:0}
   html,body{overflow:visible;background:#fff;height:auto}
   .deck{position:static;display:block}
   .slide{display:flex!important;position:relative;left:auto;top:auto;margin:0;transform:none!important;box-shadow:none;page-break-after:always;break-after:page}
   .progress,.hud,.notes,.help,.navbtn{display:none!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
 </style>
 </head>
 <body>
 <div class="deck" id="deck">
 
 <!-- 1 -->
-<section class="slide s-title" data-t="30">
-  <span class="tag">Comunicação de pesquisa · ENAJUS 2026</span>
+<section class="slide s-title" data-t="20">
+  <div class="tag">ENAJUS 2026 · Goiânia · Tema 9: Políticas Públicas de Justiça</div>
   <h1>Política Judiciária como Campo Emergente</h1>
   <div class="sub">Da cartografia bibliométrica à maturidade observável das Políticas Judiciárias Nacionais Programáticas (PJNP)</div>
   <div class="authors">Igor Caires Machado · Marina Brazil Bonani · Antonio Ferreira de Melo Filho · Juliana Almeida Costa Cronemberger<br><span class="inst">Conselho Nacional de Justiça · Escola Nacional do Judiciário</span></div>
-  <aside>Apresentar os autores e o vínculo institucional. Situar o trabalho como estudo exploratório, de natureza conceitual e descritiva, que articula pesquisa acadêmica e gestão de políticas no CNJ.</aside>
+  <aside>Apresentar os autores e o vínculo institucional. Anunciar a tese que conduz a apresentação: um campo de pesquisa está em formação, e o Judiciário brasileiro ocupa posição central nesse processo.</aside>
 </section>
 
 <!-- 2 -->
-<section class="slide" data-t="90">
-  <div class="kicker">1 · Contexto e problema de pesquisa</div>
-  <h2>A institucionalização da categoria “política judiciária”</h2>
+<section class="slide" data-t="70">
+  <div class="kicker"><span class="act">I</span> Por que agora · Contexto</div>
+  <h2>A categoria já orienta a gestão do Judiciário</h2>
   <div class="row grow">
-    <div class="col txt" style="flex:1.25">
-      <p>Desde a criação do CNJ pela EC 45/2004, resoluções, metas nacionais e programas passaram a compor o repertório de instrumentos de ação pública do setor justiça. Nesse percurso, a expressão “política judiciária” consolidou-se como categoria operacional do vocabulário institucional brasileiro.</p>
-      <p>A literatura científica, contudo, emprega o termo a partir de tradições disciplinares distintas: a ciência política estuda o comportamento decisório dos tribunais, a economia institucional analisa eficiência e custos, a administração pública trata da gestão de tribunais e a tradição doutrinária discute a função jurisdicional.</p>
-      <p>A ausência de delimitação conceitual dificulta comparar estudos, construir indicadores e avaliar políticas concretas.</p>
+    <div class="col txt" style="flex:1">
+      <p>Desde a EC 45/2004, o CNJ passou a formular, coordenar e monitorar políticas no interior do sistema de justiça. Resoluções, metas nacionais e programas compõem hoje um repertório próprio de instrumentos de ação pública (Lascoumes &amp; Le Galès, 2007).</p>
+      <p>Nesse percurso, a expressão “política judiciária” deixou de ser apenas descritiva. Tornou-se categoria normativa, com efeitos sobre planejamento, governança e avaliação.</p>
     </div>
-    <div class="col" style="flex:1">
-      <div class="tl small">
-        <div class="it"><div class="yr">2010</div><div class="tx">Res. CNJ 125: Política Judiciária Nacional de Tratamento Adequado dos Conflitos</div></div>
-        <div class="it"><div class="yr">2014</div><div class="tx">Res. CNJ 198: planejamento e gestão estratégica</div></div>
-        <div class="it"><div class="yr">2020</div><div class="tx">Res. CNJ 325: Estratégia Nacional 2021–2026</div></div>
-        <div class="it"><div class="yr">2026</div><div class="tx">IN CNJ 112 e 113 e Projeto ELO: ciclo e governança das PJNP</div></div>
-      </div>
-      <div class="card" style="border-left:6px solid var(--navy2)">
-        <h3>Pergunta de pesquisa</h3>
-        <p style="font-size:18px">Como delimitar conceitualmente a acepção programática de “política judiciária” e aplicá-la à análise observável das PJNP do CNJ?</p>
+    <div class="col" style="flex:1.05">
+      <div class="tl">
+        <div class="it"><div class="yr">2010</div><div class="tx">Res. CNJ 125 institui a Política Judiciária Nacional de Tratamento Adequado dos Conflitos</div></div>
+        <div class="it"><div class="yr">2014</div><div class="tx">Res. CNJ 198 vincula planejamento e gestão estratégica ao ciclo 2015–2020</div></div>
+        <div class="it"><div class="yr">2020</div><div class="tx">Res. CNJ 325 define política judiciária nacional na Estratégia 2021–2026</div></div>
+        <div class="it hl"><div class="yr">2026</div><div class="tx">IN CNJ 112 e 113 e Projeto ELO organizam ciclo e governança das PJNP. Res. CNJ 692 institui a Estratégia 2027–2032</div></div>
       </div>
     </div>
   </div>
-  <aside>O ponto de partida é um descompasso: o uso institucional da expressão cresceu sem convergência conceitual equivalente na literatura. O estudo pergunta o que pode ser observado numa política judiciária antes de qualquer juízo sobre efetividade.</aside>
+  <aside>A Resolução CNJ 692/2026 entra em vigor em 1º de janeiro de 2027 e estabelece que os atos e as políticas do CNJ devem fundamentar-se na Estratégia Nacional. A categoria está, portanto, no centro do próximo ciclo estratégico.</aside>
 </section>
 
 <!-- 3 -->
-<section class="slide" data-t="60">
-  <div class="kicker">2 · Natureza e objetivos</div>
-  <h2>Um estudo exploratório, conceitual e descritivo</h2>
-  <div class="row grow">
-    <div class="col txt" style="flex:1">
-      <p>O estudo tem caráter exploratório. Seu propósito é mapear a produção sobre o tema, descrever o portfólio nacional de políticas judiciárias programáticas e formular hipóteses para investigação futura.</p>
-      <div class="card" style="background:#f0f2f6">
-        <h3>Delimitação do escopo</h3>
-        <p style="font-size:17px">O estudo não avalia efetividade, impacto social ou qualidade da implementação das políticas. Essas dimensões exigem desenhos avaliativos próprios.</p>
-      </div>
-    </div>
-    <div class="col" style="flex:1.1">
-      <ol class="obj">
-        <li><b>Dimensionar e periodizar</b> a produção que emprega o rótulo “política judiciária”.</li>
-        <li><b>Diagnosticar</b> a configuração do campo: periódicos, autoria, citações.</li>
-        <li><b>Delimitar</b> a acepção programática do conceito.</li>
-        <li><b>Aplicar</b> essa acepção ao portfólio das PJNP, com base no Painel PJNP, e propor caminhos de aperfeiçoamento analítico.</li>
-      </ol>
-    </div>
+<section class="slide" data-t="80">
+  <div class="kicker"><span class="act">I</span> Por que agora · Lacuna</div>
+  <h2>Entre duas literaturas, uma pergunta sem critério</h2>
+  <div class="gap">
+    <div class="lit"><h3>Governança judicial</h3><p>Descreve conselhos, reformas e desempenho de tribunais.</p><p class="lbl">Garoupa &amp; Ginsburg, 2009 · Kosař, 2018 · Ng, 2011</p></div>
+    <div class="void"><div class="vt">Lacuna</div><p>Que atributos de uma política judiciária podem ser <b>observados</b> antes de qualquer juízo sobre sua efetividade?</p></div>
+    <div class="lit"><h3>Políticas públicas</h3><p>Oferece instrumentos, modelos de implementação e indicadores compostos.</p><p class="lbl">Lascoumes &amp; Le Galès, 2007 · Lipsky, 2010 · OECD, 2008</p></div>
   </div>
-  <aside>Deixar explícito, já neste momento, o contrato com a plateia: os resultados são descritivos e o produto central é uma agenda de hipóteses.</aside>
+  <div class="row" style="margin-top:22px">
+    <div class="card" style="flex:1"><h3>Consequência</h3><p class="sm">Sem essa delimitação, avaliações de política judiciária tendem a tomar o registro administrativo como evidência de resultado.</p></div>
+    <div class="card" style="flex:1;border-left:6px solid var(--teal)"><h3>Pergunta de pesquisa</h3><p class="sm">Como delimitar a acepção programática de “política judiciária” e aplicá-la à análise observável das PJNP do CNJ?</p></div>
+  </div>
+  <aside>A literatura internacional opera com gramáticas distintas: comportamento decisório (Segal &amp; Spaeth), eficiência (Voigt), administração de tribunais (Aikman) e tradição doutrinária. Nenhuma oferece critério de observabilidade para políticas judiciárias programáticas.</aside>
 </section>
 
 <!-- 4 -->
-<section class="slide" data-t="90">
-  <div class="kicker">3 · Desenho metodológico</div>
-  <h2>Duas etapas articuladas</h2>
-  <div class="row grow">
-    <div class="card col" style="flex:1;border-top:5px solid #4f77b0;gap:10px">
-      <h3>Etapa 1 · Cartografia bibliométrica</h3>
-      <p class="sm">Busca programática em OpenAlex, Scopus, Semantic Scholar e Crossref, de 2000 a 2026, com protocolo PRISMA adaptado (Page et al., 2021).</p>
-      <p class="sm">Estratégia de dois anéis concêntricos (Zupic & Čater, 2015): o <b>anel nuclear</b> reúne registros que usam a expressão exata; o <b>anel estendido</b> reúne a literatura cognata sobre governança, administração e reforma judicial.</p>
-      <p class="sm">7.161 registros identificados e 4.926 incluídos após deduplicação e triagem.</p>
-    </div>
-    <div class="card col" style="flex:1;border-top:5px solid #1d3557;gap:10px">
-      <h3>Etapa 2 · Análise aplicada às PJNP</h3>
-      <p class="sm">A acepção identificada na cartografia é aplicada ao portfólio registrado no Painel PJNP do CNJ: 40 políticas, 253 iniciativas e 96 colegiados.</p>
-      <p class="sm">A análise é descritiva. Examina atributos de governança, alinhamento estratégico e monitoramento registrados no painel, além de associações exploratórias com resultados administrativos.</p>
-      <p class="sm">Os procedimentos, strings de busca e regras de codificação estão depositados em repositório público.</p>
-    </div>
+<section class="slide" data-t="80">
+  <div class="kicker"><span class="act">I</span> Por que agora · Relevância e objetivos</div>
+  <h2>Três razões para investigar o tema neste momento</h2>
+  <div class="row" style="margin-bottom:20px">
+    <div class="card num" style="flex:1"><div class="n">1</div><h3>Transição de ciclo</h3><p class="sm">A Estratégia 2027–2032 exige que políticas do CNJ se fundamentem na estratégia nacional. Delimitar o conceito qualifica formulação e acompanhamento.</p></div>
+    <div class="card num" style="flex:1"><div class="n">2</div><h3>Institucionalização da avaliação</h3><p class="sm">A IN CNJ 112/2026 explicita o ciclo de formulação, implementação, monitoramento e avaliação das PJNP.</p></div>
+    <div class="card num" style="flex:1"><div class="n">3</div><h3>Um campo em formação</h3><p class="sm">A produção científica sobre o tema cresce, mas ainda sem núcleo conceitual. É o momento de mapear suas fronteiras.</p></div>
   </div>
-  <div class="quote" style="margin-top:22px;font-size:23px">A cartografia não valida a etapa aplicada. Ela delimita o que essa etapa pode legitimamente observar.</div>
-  <aside>Coleta em 22 e 23 de abril de 2026, com semente fixa para reprodutibilidade. O anel lexical bruto tinha 170 registros; a triagem semântica reclassificou 55 e resultou em 115 registros no anel nuclear.</aside>
+  <div class="card" style="background:var(--tint)">
+    <p class="sm"><b>Natureza do estudo.</b> Exploratório e descritivo. Objetivos: (i) dimensionar e periodizar a produção, (ii) diagnosticar a configuração do campo, (iii) delimitar a acepção programática e (iv) aplicá-la ao portfólio das PJNP. O estudo não avalia efetividade nem impacto das políticas.</p>
+  </div>
+  <aside>Este slide fecha o primeiro ato. A pesquisa responde a uma demanda institucional concreta e, ao mesmo tempo, a uma questão científica: como se constitui um campo de conhecimento sobre políticas judiciárias.</aside>
 </section>
 
 <!-- 5 -->
-<section class="slide" data-t="120">
-  <div class="kicker">4 · Achado 1 · Configuração do campo</div>
-  <h2>Um campo de baixa consolidação, em expansão recente</h2>
-  <div class="row grow">
-    <div class="col txt" style="flex:1.05">
-      <p>Dos 4.926 registros incluídos, apenas <b>115 (2,3%)</b> empregam explicitamente o rótulo “política judiciária”. Esses registros distribuem-se por <b>78 periódicos</b>, sem veículo de convergência, e apresentam <b>mediana de citações igual a zero</b>.</p>
-      <p>A distribuição de Bradford, a autoria pulverizada e a baixa sobreposição entre bases apontam na mesma direção: trata-se de um campo emergente, com fronteiras lexicais ainda instáveis.</p>
-      <p>A produção permanece residual até 2014 e cresce a partir de 2015. Esse movimento coincide com a formalização do planejamento estratégico do Judiciário pelo CNJ, o que sugere uma hipótese de alinhamento entre institucionalização normativa e produção científica.</p>
-    </div>
-    <div class="col" style="flex:1">
-      <h3>Registros do anel nuclear por quinquênio</h3>
-      <div class="vchart" style="height:230px">
-        <div class="c"><div class="v">7<small>1,2%</small></div><div class="b" style="height:13%"></div></div>
-        <div class="c"><div class="v">7<small>1,0%</small></div><div class="b" style="height:13%"></div></div>
-        <div class="c"><div class="v">12<small>1,5%</small></div><div class="b" style="height:23%"></div></div>
-        <div class="c"><div class="v">34<small>3,3%</small></div><div class="b" style="height:65%"></div></div>
-        <div class="c"><div class="v">52<small>3,2%</small></div><div class="b" style="height:100%"></div></div>
-      </div>
-      <div class="vlabels"><span>2000–04</span><span>2005–09</span><span>2010–14</span><span>2015–19</span><span>2020–25</span></div>
-      <p class="muted" style="font-size:14.5px">Percentual: participação do anel nuclear no total do quinquênio.</p>
-    </div>
-  </div>
-  <aside>Relevância: o campo ainda não dispõe de um núcleo editorial nem de uma comunidade citacional estável. A literatura cognata já possui espaços de convergência, como o International Journal for Court Administration, com 133 artigos no anel estendido. A inflexão após 2014 é tratada como hipótese, sem inferência causal.</aside>
+<section class="slide" data-t="90">
+  <div class="kicker"><span class="act">II</span> Sinais de um campo · Método</div>
+  <h2>Cartografia bibliométrica multibase</h2>
+  <div class="txt" style="margin-bottom:14px"><p>OpenAlex, Scopus, Semantic Scholar e Crossref, de 2000 a 2026, com protocolo PRISMA adaptado (Page et al., 2021). A estratégia de dois anéis concêntricos (Zupic &amp; Čater, 2015) separa os registros que <b>usam o rótulo</b> daqueles que tratam de temas cognatos.</p></div>
+  <svg viewBox="0 0 1136 300" class="chart" role="img" aria-label="Fluxo PRISMA do estudo"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#707173"/></marker></defs><rect x="0" y="40" width="190" height="78" rx="10" fill="#8a8b8d"/><text x="95.0" y="73.0" text-anchor="middle" class="bt" fill="#fff">Identificados · 4 bases</text><text x="95.0" y="99.0" text-anchor="middle" class="bn" fill="#fff">7.161</text><line x1="190" y1="79" x2="226" y2="79" stroke="#707173" stroke-width="2" marker-end="url(#ah)"/><rect x="228" y="40" width="190" height="78" rx="10" fill="#5f6064"/><text x="323.0" y="73.0" text-anchor="middle" class="bt" fill="#fff">Após deduplicação</text><text x="323.0" y="99.0" text-anchor="middle" class="bn" fill="#fff">5.968</text><text x="208" y="146" text-anchor="middle" class="sm2">−1.193 duplicatas</text><line x1="323" y1="118" x2="323" y2="186" stroke="#707173" stroke-width="2" marker-end="url(#ah)"/><rect x="228" y="188" width="190" height="78" rx="10" fill="#b5532d"/><text x="323.0" y="221.0" text-anchor="middle" class="bt" fill="#fff">Excluídos</text><text x="323.0" y="247.0" text-anchor="middle" class="bn" fill="#fff">1.042</text><line x1="418" y1="79" x2="454" y2="79" stroke="#707173" stroke-width="2" marker-end="url(#ah)"/><rect x="456" y="40" width="190" height="78" rx="10" fill="#1a171b"/><text x="551.0" y="73.0" text-anchor="middle" class="bt" fill="#fff">Incluídos</text><text x="551.0" y="99.0" text-anchor="middle" class="bn" fill="#fff">4.926</text><line x1="646" y1="64" x2="700" y2="30" stroke="#707173" stroke-width="2" marker-end="url(#ah)"/><line x1="646" y1="96" x2="700" y2="226" stroke="#707173" stroke-width="2" marker-end="url(#ah)"/><rect x="702" y="0" width="200" height="78" rx="10" fill="#b8862b"/><text x="802.0" y="33.0" text-anchor="middle" class="bt" fill="#fff">Anel lexical bruto</text><text x="802.0" y="59.0" text-anchor="middle" class="bn" fill="#fff">170</text><line x1="902" y1="39" x2="934" y2="39" stroke="#707173" stroke-width="2" marker-end="url(#ah)"/><rect x="936" y="0" width="200" height="78" rx="10" fill="#00857d"/><text x="1036.0" y="33.0" text-anchor="middle" class="bt" fill="#fff">Anel nuclear</text><text x="1036.0" y="59.0" text-anchor="middle" class="bn" fill="#fff">115</text><text x="918" y="104" text-anchor="middle" class="sm2">−55 reclassificados</text><rect x="702" y="188" width="200" height="78" rx="10" fill="#9c9a93"/><text x="802.0" y="221.0" text-anchor="middle" class="bt" fill="#fff">Anel estendido</text><text x="802.0" y="247.0" text-anchor="middle" class="bn" fill="#fff">4.811</text><path d="M918 110 C 918 170, 880 200, 904 214" fill="none" stroke="#707173" stroke-width="1.6" stroke-dasharray="4 4" marker-end="url(#ah)"/><text x="936" y="236" class="sm2">inclui os 55 registros</text><text x="936" y="254" class="sm2">reclassificados do anel lexical</text></svg>
+  <p class="note">Coleta em 22 e 23 de abril de 2026. Strings, filtros, endpoints e codebooks depositados em repositório público.</p>
+  <aside>O anel lexical bruto reúne 170 registros com a expressão exata no título ou resumo. A triagem semântica reclassificou 55 registros, entre eles 40 dos 41 de acepção comportamental, resultando em 115 registros no anel nuclear. O anel estendido, com 4.811 registros, cobre governança, administração e reforma judicial.</aside>
 </section>
 
 <!-- 6 -->
-<section class="slide" data-t="120">
-  <div class="kicker">5 · Achado 2 · Heterogeneidade semântica</div>
-  <h2>O rótulo designa objetos analíticos distintos</h2>
+<section class="slide" data-t="80">
+  <div class="kicker"><span class="act">II</span> Sinais de um campo · Achado 1</div>
+  <h2>A produção cresce e acompanha a institucionalização</h2>
   <div class="row grow">
-    <div class="col" style="flex:1.1;justify-content:flex-start">
-      <p class="muted" style="font-size:14.5px;margin-bottom:2px">Classificação dos 170 registros com a expressão exata</p>
-      <div class="bars">
-        <div class="bar"><div class="nm">Programática</div><div class="tr"><div class="fl" style="width:49.4%"></div></div><div class="vl">22,4%</div></div>
-        <div class="bar"><div class="nm">Comportamental</div><div class="tr"><div class="fl" style="width:53.2%;background:#4f77b0"></div></div><div class="vl">24,1%</div></div>
-        <div class="bar"><div class="nm">Doutrinária</div><div class="tr"><div class="fl" style="width:18.1%;background:#6c8ebf"></div></div><div class="vl">8,2%</div></div>
-        <div class="bar"><div class="nm">Indeterminada</div><div class="tr"><div class="fl hatch" style="width:100%"></div></div><div class="vl">45,3%</div></div>
-      </div>
-      <p class="sm" style="margin-top:16px">A parcela indeterminada decorre sobretudo da baixa disponibilidade de resumos nos metadados (9,6% no anel nuclear). Ela expressa um limite de observação e não autoriza, por si só, conclusões sobre instabilidade conceitual.</p>
+    <div class="col" style="flex:1.35;gap:6px">
+      <div class="leg"><span><i style="background:#00857d"></i>Anel nuclear por ano</span><span><i class="ln"></i>Média móvel de 3 anos</span><span><i class="dash"></i>Marcos normativos do CNJ</span></div>
+      <svg viewBox="0 0 660 330" class="chart" role="img" aria-label="Registros do anel nuclear por ano, 2000 a 2025"><line x1="44" x2="646" y1="290.0" y2="290.0" stroke="#e4e1da"/><text x="36" y="294.0" text-anchor="end" class="ax">0</text><line x1="44" x2="646" y1="197.1" y2="197.1" stroke="#e4e1da"/><text x="36" y="201.1" text-anchor="end" class="ax">5</text><line x1="44" x2="646" y1="104.3" y2="104.3" stroke="#e4e1da"/><text x="36" y="108.3" text-anchor="end" class="ax">10</text><line x1="287.1" x2="287.1" y1="24" y2="290" stroke="#b8862b" stroke-dasharray="4 4" stroke-width="1.5"/><text x="292.1" y="34" class="mk">Res. 125</text><line x1="379.7" x2="379.7" y1="24" y2="290" stroke="#b8862b" stroke-dasharray="4 4" stroke-width="1.5"/><text x="384.7" y="34" class="mk">Res. 198</text><line x1="518.7" x2="518.7" y1="24" y2="290" stroke="#b8862b" stroke-dasharray="4 4" stroke-width="1.5"/><text x="523.7" y="34" class="mk">Res. 325</text><rect x="47.2" y="271.4" width="16.7" height="18.6" rx="2" fill="#7fbfba"/><text x="55.6" y="310" text-anchor="middle" class="ax">2000</text><rect x="116.7" y="271.4" width="16.7" height="18.6" rx="2" fill="#7fbfba"/><rect x="139.9" y="197.1" width="16.7" height="92.9" rx="2" fill="#7fbfba"/><text x="171.3" y="310" text-anchor="middle" class="ax">2005</text><rect x="186.2" y="271.4" width="16.7" height="18.6" rx="2" fill="#7fbfba"/><rect x="209.3" y="234.3" width="16.7" height="55.7" rx="2" fill="#7fbfba"/><rect x="232.5" y="234.3" width="16.7" height="55.7" rx="2" fill="#7fbfba"/><rect x="278.8" y="271.4" width="16.7" height="18.6" rx="2" fill="#7fbfba"/><text x="287.1" y="310" text-anchor="middle" class="ax">2010</text><rect x="301.9" y="234.3" width="16.7" height="55.7" rx="2" fill="#7fbfba"/><rect x="325.1" y="252.9" width="16.7" height="37.1" rx="2" fill="#7fbfba"/><rect x="348.2" y="197.1" width="16.7" height="92.9" rx="2" fill="#7fbfba"/><rect x="371.4" y="271.4" width="16.7" height="18.6" rx="2" fill="#7fbfba"/><rect x="394.5" y="160.0" width="16.7" height="130.0" rx="2" fill="#00857d"/><text x="402.9" y="310" text-anchor="middle" class="ax">2015</text><rect x="417.7" y="160.0" width="16.7" height="130.0" rx="2" fill="#00857d"/><rect x="440.9" y="215.7" width="16.7" height="74.3" rx="2" fill="#00857d"/><rect x="464.0" y="85.7" width="16.7" height="204.3" rx="2" fill="#00857d"/><rect x="487.2" y="197.1" width="16.7" height="92.9" rx="2" fill="#00857d"/><rect x="510.3" y="160.0" width="16.7" height="130.0" rx="2" fill="#00857d"/><text x="518.7" y="310" text-anchor="middle" class="ax">2020</text><rect x="533.5" y="197.1" width="16.7" height="92.9" rx="2" fill="#00857d"/><rect x="556.6" y="48.6" width="16.7" height="241.4" rx="2" fill="#00857d"/><rect x="579.8" y="160.0" width="16.7" height="130.0" rx="2" fill="#00857d"/><rect x="602.9" y="67.1" width="16.7" height="222.9" rx="2" fill="#00857d"/><rect x="626.1" y="141.4" width="16.7" height="148.6" rx="2" fill="#00857d"/><text x="634.4" y="310" text-anchor="middle" class="ax">2025</text><polyline fill="none" stroke="#1a171b" stroke-width="2.4" stroke-linejoin="round" points="55.6,280.7 78.7,283.8 101.9,283.8 125.0,252.9 148.2,252.9 171.3,252.9 194.5,265.2 217.7,246.7 240.8,252.9 264.0,265.2 287.1,265.2 310.3,252.9 333.4,228.1 356.6,240.5 379.7,209.5 402.9,197.1 426.0,178.6 449.2,153.8 472.3,166.2 495.5,147.6 518.7,184.8 541.8,135.2 565.0,135.2 588.1,91.9 611.3,122.9 634.4,104.3"/><line x1="44" x2="646" y1="290" y2="290" stroke="#707173"/></svg>
+      <div class="leg"><span><i style="background:#c9c6bd"></i>Corpus completo por ano</span><span><i style="background:#00857d"></i>parcela nuclear</span></div>
+      <svg viewBox="0 0 660 110" class="chart" role="img" aria-label="Corpus completo por ano"><rect x="47.2" y="69.7" width="16.7" height="18.3" rx="1.5" fill="#c9c6bd"/><rect x="47.2" y="87.8" width="16.7" height="0.2" fill="#00857d"/><rect x="70.4" y="65.8" width="16.7" height="22.2" rx="1.5" fill="#c9c6bd"/><rect x="70.4" y="88.0" width="16.7" height="0.0" fill="#00857d"/><rect x="93.5" y="61.3" width="16.7" height="26.7" rx="1.5" fill="#c9c6bd"/><rect x="93.5" y="88.0" width="16.7" height="0.0" fill="#00857d"/><rect x="116.7" y="52.6" width="16.7" height="35.4" rx="1.5" fill="#c9c6bd"/><rect x="116.7" y="87.8" width="16.7" height="0.2" fill="#00857d"/><rect x="139.9" y="58.3" width="16.7" height="29.7" rx="1.5" fill="#c9c6bd"/><rect x="139.9" y="86.9" width="16.7" height="1.1" fill="#00857d"/><rect x="163.0" y="56.7" width="16.7" height="31.3" rx="1.5" fill="#c9c6bd"/><rect x="163.0" y="88.0" width="16.7" height="0.0" fill="#00857d"/><rect x="186.2" y="56.7" width="16.7" height="31.3" rx="1.5" fill="#c9c6bd"/><rect x="186.2" y="87.8" width="16.7" height="0.2" fill="#00857d"/><rect x="209.3" y="56.2" width="16.7" height="31.8" rx="1.5" fill="#c9c6bd"/><rect x="209.3" y="87.3" width="16.7" height="0.7" fill="#00857d"/><rect x="232.5" y="56.5" width="16.7" height="31.5" rx="1.5" fill="#c9c6bd"/><rect x="232.5" y="87.3" width="16.7" height="0.7" fill="#00857d"/><rect x="255.6" y="55.5" width="16.7" height="32.5" rx="1.5" fill="#c9c6bd"/><rect x="255.6" y="88.0" width="16.7" height="0.0" fill="#00857d"/><rect x="278.8" y="54.6" width="16.7" height="33.4" rx="1.5" fill="#c9c6bd"/><rect x="278.8" y="87.8" width="16.7" height="0.2" fill="#00857d"/><rect x="301.9" y="54.9" width="16.7" height="33.1" rx="1.5" fill="#c9c6bd"/><rect x="301.9" y="87.3" width="16.7" height="0.7" fill="#00857d"/><rect x="325.1" y="47.5" width="16.7" height="40.5" rx="1.5" fill="#c9c6bd"/><rect x="325.1" y="87.5" width="16.7" height="0.5" fill="#00857d"/><rect x="348.2" y="46.4" width="16.7" height="41.6" rx="1.5" fill="#c9c6bd"/><rect x="348.2" y="86.9" width="16.7" height="1.1" fill="#00857d"/><rect x="371.4" y="48.0" width="16.7" height="40.0" rx="1.5" fill="#c9c6bd"/><rect x="371.4" y="87.8" width="16.7" height="0.2" fill="#00857d"/><rect x="394.5" y="46.4" width="16.7" height="41.6" rx="1.5" fill="#c9c6bd"/><rect x="394.5" y="86.4" width="16.7" height="1.6" fill="#00857d"/><rect x="417.7" y="41.8" width="16.7" height="46.2" rx="1.5" fill="#c9c6bd"/><rect x="417.7" y="86.4" width="16.7" height="1.6" fill="#00857d"/><rect x="440.9" y="42.1" width="16.7" height="45.9" rx="1.5" fill="#c9c6bd"/><rect x="440.9" y="87.1" width="16.7" height="0.9" fill="#00857d"/><rect x="464.0" y="37.3" width="16.7" height="50.7" rx="1.5" fill="#c9c6bd"/><rect x="464.0" y="85.5" width="16.7" height="2.5" fill="#00857d"/><rect x="487.2" y="34.7" width="16.7" height="53.3" rx="1.5" fill="#c9c6bd"/><rect x="487.2" y="86.9" width="16.7" height="1.1" fill="#00857d"/><rect x="510.3" y="24.5" width="16.7" height="63.5" rx="1.5" fill="#c9c6bd"/><rect x="510.3" y="86.4" width="16.7" height="1.6" fill="#00857d"/><rect x="533.5" y="28.8" width="16.7" height="59.2" rx="1.5" fill="#c9c6bd"/><rect x="533.5" y="86.9" width="16.7" height="1.1" fill="#00857d"/><rect x="556.6" y="39.8" width="16.7" height="48.2" rx="1.5" fill="#c9c6bd"/><rect x="556.6" y="85.0" width="16.7" height="3.0" fill="#00857d"/><rect x="579.8" y="29.9" width="16.7" height="58.1" rx="1.5" fill="#c9c6bd"/><rect x="579.8" y="86.4" width="16.7" height="1.6" fill="#00857d"/><rect x="602.9" y="24.5" width="16.7" height="63.5" rx="1.5" fill="#c9c6bd"/><rect x="602.9" y="85.3" width="16.7" height="2.7" fill="#00857d"/><rect x="626.1" y="10.7" width="16.7" height="77.3" rx="1.5" fill="#c9c6bd"/><rect x="626.1" y="86.2" width="16.7" height="1.8" fill="#00857d"/><text x="36" y="23.4" text-anchor="end" class="ax">300</text><line x1="44" x2="646" y1="19.4" y2="19.4" stroke="#e4e1da"/><line x1="44" x2="646" y1="88" y2="88" stroke="#707173"/><text x="55.6" y="106" text-anchor="middle" class="ax">2000</text><text x="171.3" y="106" text-anchor="middle" class="ax">2005</text><text x="287.1" y="106" text-anchor="middle" class="ax">2010</text><text x="402.9" y="106" text-anchor="middle" class="ax">2015</text><text x="518.7" y="106" text-anchor="middle" class="ax">2020</text><text x="634.4" y="106" text-anchor="middle" class="ax">2025</text></svg>
     </div>
-    <div class="col txt" style="flex:1;gap:12px">
-      <div class="acc"><b>Programática.</b> Política como programa, plano ou portfólio institucional, coordenado por conselhos e órgãos de governança.</div>
-      <div class="acc"><b>Comportamental.</b> Política como padrão decisório e prática dos atores judiciais, na tradição da ciência política anglo-saxã.</div>
-      <div class="acc"><b>Doutrinária.</b> Política como teoria geral da função jurisdicional, presente nas tradições russa, chinesa e islâmica.</div>
-      <p class="sm">Nenhuma acepção domina. A coexistência de usos sob o mesmo rótulo dificulta a acumulação de conhecimento e a construção de indicadores comparáveis.</p>
+    <div class="col txt" style="flex:.8">
+      <p>O anel nuclear permanece residual até 2014. A partir de 2015 a produção ganha patamar próprio: 34 registros em 2015–19 e 52 em 2020–25.</p>
+      <p>A inflexão coincide com a Res. CNJ 198/2014 e com a Res. CNJ 325/2020. Essa coincidência sustenta uma hipótese de alinhamento entre institucionalização normativa e produção científica.</p>
+      <div class="sign on">Sinal do campo: crescimento</div>
     </div>
   </div>
-  <aside>Este é o achado central da etapa bibliométrica. A classificação usou regra determinística sobre título, resumo e periódico, com codebook depositado. A polissemia é observada no corpus, e não estipulada a priori.</aside>
+  <p class="note">Valores anuais estimados a partir da Figura 2 do artigo e calibrados pelos totais quinquenais da Tabela 11.</p>
+  <aside>A literatura cognata cresce de modo contínuo no mesmo período. A participação do anel nuclear passa de cerca de 1% para 3,3% do total. A relação com os marcos é tratada como hipótese, sem inferência causal.</aside>
 </section>
 
 <!-- 7 -->
-<section class="slide" data-t="60">
-  <div class="kicker">6 · Achado 3 · Implicação conceitual</div>
-  <h2>A acepção programática como objeto observável</h2>
+<section class="slide" data-t="90">
+  <div class="kicker"><span class="act">II</span> Sinais de um campo · Achado 2</div>
+  <h2>Um campo sem núcleo editorial nem cânone consolidado</h2>
   <div class="row grow">
-    <div class="col txt" style="flex:1.2">
-      <p>Entre as três acepções, a programática é a que se expressa em instrumentos institucionais registráveis: atos normativos, objetivos, responsáveis designados, vínculos estratégicos e mecanismos de acompanhamento.</p>
-      <p>Por essa razão, ela permite tratar a política judiciária como política pública formulada, coordenada e monitorada no interior do sistema de justiça (Taylor, 2007; Lascoumes & Le Galès, 2007).</p>
-      <p>A delimitação tem uma consequência metodológica relevante: o que se observa em registros institucionais é a <b>maturidade observável</b> da política. Efetividade e impacto pertencem a outro plano analítico.</p>
+    <div class="col" style="flex:1.4">
+      <h3 style="margin-bottom:4px">Trabalhos mais citados do anel nuclear</h3>
+      <div class="cited"><div class="cb"><div class="ct">Judicial Policy Implementation in Mexico City and Merida <span>2004</span></div><div class="cbar"><i style="width:100.0%"></i><b>60</b></div></div><div class="cb"><div class="ct">The Right of Actio Popularis before International Courts <span>2018</span></div><div class="cbar"><i style="width:21.7%"></i><b>13</b></div></div><div class="cb"><div class="ct">Judicial Policy Revisited: Transformative Adjudication <span>2008</span></div><div class="cbar"><i style="width:18.3%"></i><b>11</b></div></div><div class="cb"><div class="ct">Employer Liability for Employee Sexual Harassment <span>2000</span></div><div class="cbar"><i style="width:18.3%"></i><b>11</b></div></div><div class="cb"><div class="ct">Judicial Review and Bureaucratic Impact <span>2004</span></div><div class="cbar"><i style="width:11.7%"></i><b>7</b></div></div><div class="cb br"><div class="ct">Política Judiciária Nacional de Tratamento Adequado dos Conflitos <span>2022</span></div><div class="cbar"><i style="width:8.3%"></i><b>5</b></div></div><div class="cb"><div class="ct">Judicial Policy in a Transforming Constitution <span>2007</span></div><div class="cbar"><i style="width:6.7%"></i><b>4</b></div></div><div class="cb"><div class="ct">The Judicial Policy of Ratio Decidendi (corporate criminal) <span>2024</span></div><div class="cbar"><i style="width:5.0%"></i><b>3</b></div></div><div class="cb"><div class="ct">Judicial Policy Diffusion: specialised state courts <span>2020</span></div><div class="cbar"><i style="width:5.0%"></i><b>3</b></div></div><div class="cb br"><div class="ct">Políticas Judiciárias no Brasil: o Judiciário como autor de políticas <span>2014</span></div><div class="cbar"><i style="width:5.0%"></i><b>3</b></div></div></div>
+      <p class="note" style="margin-top:6px">Citações conforme metadados das bases. Em dourado, trabalhos brasileiros.</p>
     </div>
-    <div class="col" style="flex:.85">
-      <div class="card" style="border-left:6px solid var(--navy2)">
-        <h3>Distinção analítica adotada</h3>
-        <p class="sm"><b>Observabilidade:</b> governança formal, alinhamento estratégico e rastreabilidade do monitoramento registrados.</p>
-        <p class="sm" style="margin-top:8px"><b>Efetividade e impacto:</b> exigem dados de implementação nos tribunais e desenhos avaliativos próprios.</p>
-        <p class="lbl" style="margin-top:10px">Staats et al. (2005): distinção entre desenho institucional e desempenho.</p>
-      </div>
+    <div class="col" style="flex:.75;gap:14px">
+      <div class="card stat"><div class="big">78</div><div class="lbl">periódicos distintos para 115 registros</div></div>
+      <div class="card stat"><div class="big">0</div><div class="lbl">mediana de citações no anel nuclear</div></div>
+      <p class="sm">A visibilidade concentra-se em um único trabalho de 2004. Os dois trabalhos brasileiros tratam da política instituída pela Res. CNJ 125/2010 e do Judiciário como autor de políticas públicas.</p>
+      <div class="sign off">Sinal do campo: núcleo editorial ausente</div>
     </div>
   </div>
-  <aside>Este slide faz a ponte entre as duas etapas. A bibliometria mostrou a pluralidade de sentidos; a acepção programática é a que pode ser observada a partir de registros administrativos.</aside>
+  <aside>A lei de Bradford confirma a dispersão: para reunir terços sucessivos da produção é preciso incorporar muitos periódicos. A autoria é pulverizada e a sobreposição entre bases é baixa. A literatura cognata já tem um espaço de convergência, o International Journal for Court Administration, com 133 artigos no anel estendido.</aside>
 </section>
 
 <!-- 8 -->
-<section class="slide" data-t="120">
-  <div class="kicker">7 · O Painel PJNP</div>
-  <h2>O painel como instrumento de ação pública</h2>
+<section class="slide" data-t="90">
+  <div class="kicker"><span class="act">II</span> Sinais de um campo · Achado 3</div>
+  <h2>O mesmo rótulo designa objetos analíticos distintos</h2>
   <div class="row grow">
-    <div class="col txt" style="flex:1.2">
-      <p>O Painel de Políticas Judiciárias Nacionais Programáticas, construído e mantido pela equipe gestora das PJNP no CNJ, reúne em base estruturada o portfólio nacional de políticas judiciárias, suas iniciativas e seus colegiados.</p>
-      <p>Na perspectiva de Lascoumes & Le Galès (2007), instrumentos dessa natureza organizam o que se torna visível, comparável e passível de acompanhamento. O painel institui uma linguagem comum para coordenação, transparência e aprendizagem institucional.</p>
-      <p>Foi essa infraestrutura informacional que tornou possível a etapa aplicada deste estudo. Sem ela, a acepção programática permaneceria uma categoria teórica sem correspondência empírica.</p>
+    <div class="col" style="flex:1.05">
+      <p class="note" style="margin:0 0 6px">Classificação dos 170 registros com a expressão exata</p>
+      <div class="bars">
+        <div class="bar"><div class="nm">Programática</div><div class="tr"><div class="fl" style="width:49.4%;background:#00857d"></div></div><div class="vl">22,4%</div></div>
+        <div class="bar"><div class="nm">Comportamental</div><div class="tr"><div class="fl" style="width:53.2%;background:#5f6064"></div></div><div class="vl">24,1%</div></div>
+        <div class="bar"><div class="nm">Doutrinária</div><div class="tr"><div class="fl" style="width:18.1%;background:#b8862b"></div></div><div class="vl">8,2%</div></div>
+        <div class="bar"><div class="nm">Indeterminada</div><div class="tr"><div class="fl hatch" style="width:100%"></div></div><div class="vl">45,3%</div></div>
+      </div>
+      <p class="sm" style="margin-top:14px">A parcela indeterminada reflete sobretudo a baixa disponibilidade de resumos nos metadados. É limite de observação e não evidência substantiva de instabilidade.</p>
     </div>
-    <div class="col" style="flex:.85">
-      <div class="row" style="gap:12px">
-        <div class="card" style="flex:1;padding:16px"><div class="big" style="font-size:46px">40</div><div class="lbl">políticas</div></div>
-        <div class="card" style="flex:1;padding:16px"><div class="big" style="font-size:46px">253</div><div class="lbl">iniciativas</div></div>
-        <div class="card" style="flex:1;padding:16px"><div class="big" style="font-size:46px">96</div><div class="lbl">colegiados</div></div>
-      </div>
-      <div class="card">
-        <h3>Trajetória normativa recente</h3>
-        <p class="sm">A IN CNJ 112/2026 explicita o ciclo de formulação, implementação, monitoramento e avaliação das PJNP. A IN CNJ 113/2026 disciplina sua governança colaborativa. O Projeto ELO consolida essa agenda.</p>
-      </div>
+    <div class="col" style="flex:1;gap:10px">
+      <div class="acc" style="border-left-color:#00857d"><b>Programática.</b> Política como programa ou portfólio institucional coordenado por conselhos. Tradição brasileira e de políticas públicas.</div>
+      <div class="acc" style="border-left-color:#5f6064"><b>Comportamental.</b> Política como padrão decisório dos atores judiciais. Ciência política anglo-saxã.</div>
+      <div class="acc" style="border-left-color:#b8862b"><b>Doutrinária.</b> Política como teoria geral da função jurisdicional. Tradições russa, chinesa e islâmica.</div>
+      <div class="sign half">Sinal do campo: consenso conceitual em disputa</div>
     </div>
   </div>
-  <aside>Valorizar o trabalho da equipe gestora. O painel é condição de possibilidade do estudo. Ele também acompanha um processo normativo em curso, o que significa que os registros analisados correspondem a um momento de consolidação do instrumento.</aside>
+  <aside>Este é o achado central da etapa bibliométrica. A classificação usou regra determinística sobre título, resumo e periódico, com codebook depositado. Nenhuma acepção domina. A coexistência de objetos distintos sob o mesmo rótulo dificulta a acumulação de conhecimento e a construção de indicadores comparáveis.</aside>
 </section>
 
 <!-- 9 -->
-<section class="slide" data-t="120">
-  <div class="kicker">8 · Achado 4 · O que o painel permite observar</div>
-  <h2>Um portfólio diverso, em diferentes estágios do ciclo</h2>
-  <div class="row grow">
-    <div class="col txt" style="flex:1.15">
-      <p>O painel revela um portfólio temático amplo. Governança é a área mais frequente, com 13 políticas, e as demais distribuem-se por diferentes áreas temáticas e macrodesafios da Estratégia Nacional.</p>
-      <p>As políticas apresentam configurações distintas de governança, número de iniciativas e densidade de colegiados. Essa diversidade é coerente com políticas criadas em momentos diferentes, com desenhos institucionais próprios e em estágios distintos de maturação.</p>
-      <p>As associações exploratórias indicam que os atributos cadastrais acompanham o volume de iniciativas registradas, sem relação detectável com a conclusão de iniciativas ou com o registro de produtos.</p>
-    </div>
-    <div class="col" style="flex:.9">
-      <div class="card" style="border-left:6px solid var(--hip)">
-        <h3>Interpretação</h3>
-        <p class="sm">Registro cadastral e execução captam dimensões complementares da política. Essa distinção, já assinalada pela literatura (Staats et al., 2005), indica que instrumentos de monitoramento ganham poder analítico quando combinados a dados de implementação.</p>
-      </div>
-      <div class="card">
-        <h3>Leitura recomendada</h3>
-        <p class="sm">Os resultados descrevem o portfólio a partir dos registros disponíveis em um momento específico. Eles não constituem avaliação de desempenho das políticas.</p>
-      </div>
-    </div>
-  </div>
-  <aside>Modelos bivariados descritivos com erro-padrão robusto. Associação com número de iniciativas: beta padronizado de 0,32. Sem associação com percentual de iniciativas concluídas ou com produto. O agrupamento exploratório teve baixa separação entre grupos e foi usado apenas para organizar o portfólio.</aside>
+<section class="slide" data-t="70">
+  <div class="kicker"><span class="act">II</span> Sinais de um campo · Síntese</div>
+  <h2>Diagnóstico: um campo emergente</h2>
+  <div class="therm"><div class="th on"><span class="dot"></span><div><b>Vocabulário próprio</b><span class="st">Presente</span><p>Termos de título que distinguem o anel nuclear da literatura cognata.</p></div></div><div class="th on"><span class="dot"></span><div><b>Crescimento da produção</b><span class="st">Presente</span><p>52 registros em 2020–25, ante 7 em 2000–04.</p></div></div><div class="th on"><span class="dot"></span><div><b>Ancoragem institucional</b><span class="st">Presente</span><p>Res. CNJ 125/2010, 198/2014, 325/2020 e 692/2026.</p></div></div><div class="th off"><span class="dot"></span><div><b>Núcleo editorial</b><span class="st">Ausente</span><p>78 periódicos no anel nuclear, sem veículo de convergência.</p></div></div><div class="th half"><span class="dot"></span><div><b>Comunidade citacional</b><span class="st">Em formação</span><p>Autoria pulverizada e mediana de citações igual a zero.</p></div></div><div class="th half"><span class="dot"></span><div><b>Consenso conceitual</b><span class="st">Em formação</span><p>Três acepções coexistentes e 45% de usos indeterminados.</p></div></div></div>
+  <div class="quote" style="margin-top:20px">O campo existe, cresce e tem ancoragem institucional. Ainda lhe faltam núcleo editorial e consenso conceitual.</div>
+  <p class="note">Sinais inspirados na sociologia da ciência sobre formação de campos intelectuais (Whitley, 2000; Frickel &amp; Gross, 2005).</p>
+  <aside>Este slide fecha o segundo ato. A configuração observada corresponde ao estágio de campo emergente: há identidade lexical, crescimento e ancoragem normativa, mas a comunidade e o conceito ainda estão em consolidação. A delimitação conceitual é a contribuição que o estudo oferece a esse processo.</aside>
 </section>
 
 <!-- 10 -->
-<section class="slide" data-t="90">
-  <div class="kicker">9 · Proposta para aperfeiçoamento futuro</div>
-  <h2>Um índice de maturidade observável em construção</h2>
-  <div class="row grow">
-    <div class="col txt" style="flex:1.2">
-      <p>Como exercício exploratório, o estudo propõe o <b>IMO-PJNP</b>, índice que sintetiza três dimensões observáveis no painel: rastreabilidade do monitoramento, governança formal e alinhamento estratégico.</p>
-      <p>O índice não classifica nem avalia políticas. Sua função é demonstrar como a acepção programática pode ser operacionalizada e abrir uma agenda de aperfeiçoamento metodológico.</p>
-      <p>Seu desenvolvimento depende de validação em diálogo com as equipes gestoras, revisão das variáveis e dos pesos e incorporação de evidências sobre implementação.</p>
-    </div>
-    <div class="col" style="flex:.85">
-      <div class="dimrow"><span class="dot" style="background:#2b4c7e"></span><div><b>Rastreabilidade do monitoramento</b><br><span class="lbl">registro de instrumento de acompanhamento</span></div></div>
-      <div class="dimrow"><span class="dot" style="background:#5b4a9e"></span><div><b>Governança formal</b><br><span class="lbl">papéis de coordenação, supervisão e gerência</span></div></div>
-      <div class="dimrow"><span class="dot" style="background:#0f7a6c"></span><div><b>Alinhamento estratégico</b><br><span class="lbl">vínculo com metas, ODS e macrodesafios</span></div></div>
-      <div class="card" style="background:#f0f2f6;margin-top:6px"><p class="sm">Pesos normativos e auditáveis, ainda sem validação empírica. Detalhes no apêndice.</p></div>
-    </div>
+<section class="slide" data-t="60">
+  <div class="kicker"><span class="act">III</span> Do mapa ao território</div>
+  <h2>Onde a acepção programática existe empiricamente?</h2>
+  <div class="bridge">
+    <div class="bc dim"><h3>Comportamental</h3><p>Requer dados de rotinas e decisões nos tribunais.</p><div class="dest">Fora do alcance de registros institucionais</div></div>
+    <div class="bc main"><h3>Programática</h3><p>Expressa-se em atos normativos, objetivos, responsáveis, vínculos estratégicos e instrumentos de acompanhamento.</p><div class="arrow">↓</div><div class="dest strong">Painel PJNP</div></div>
+    <div class="bc dim"><h3>Doutrinária</h3><p>Requer análise de conteúdo normativo e jurisprudencial.</p><div class="dest">Fora do alcance de registros institucionais</div></div>
   </div>
-  <aside>Não aprofundar a fórmula. Enfatizar que se trata de proposta inicial, a ser construída de forma colaborativa, e que o índice mede apenas o que está registrado, sem juízo sobre a qualidade das políticas.</aside>
+  <p class="txt-c">Entre as três acepções, apenas a programática deixa <b>rastro institucional registrável</b>. O Painel PJNP é o lugar onde esse conceito se materializa em políticas, iniciativas e colegiados.</p>
+  <aside>Este é o elo entre as duas etapas. A bibliometria não valida a análise do painel. Ela delimita o que essa análise pode legitimamente observar: a maturidade observável da política, distinta de sua efetividade.</aside>
 </section>
 
 <!-- 11 -->
 <section class="slide" data-t="90">
-  <div class="kicker">10 · Limites do estudo</div>
-  <h2>Limites declarados e seus desdobramentos</h2>
-  <div class="lims">
-    <div class="lim"><h3>Dados bibliográficos</h3><ul><li>Web of Science não incluída na coleta</li><li>Resumos disponíveis em 14,8% do corpus</li><li>Co-citação baseada em 27% do anel nuclear</li></ul><div class="to">Desdobra-se em <span class="pill p-hip">H4</span><span class="pill p-ag">A2</span></div></div>
-    <div class="lim"><h3>Classificação semântica</h3><ul><li>Decisões apoiadas sobretudo no título</li><li>Ausência de dupla codificação independente</li><li>Parcela relevante de acepções indeterminadas</li></ul><div class="to">Desdobra-se em <span class="pill p-hip">H4</span><span class="pill p-ag">A2</span></div></div>
-    <div class="lim"><h3>Proposta de índice</h3><ul><li>Pesos normativos ainda não validados</li><li>Variáveis de presença de registro</li><li>Não mede qualidade, efetividade ou impacto</li></ul><div class="to">Desdobra-se em <span class="pill p-hip">H5</span><span class="pill p-ag">A1</span></div></div>
-    <div class="lim"><h3>Inferência</h3><ul><li>Desenho descritivo e modelos bivariados</li><li>Universo de 40 políticas em um momento específico</li><li>Agrupamentos de uso heurístico</li></ul><div class="to">Desdobra-se em <span class="pill p-hip">H3</span><span class="pill p-ag">A3</span><span class="pill p-ag">A5</span></div></div>
+  <div class="kicker"><span class="act">III</span> Do mapa ao território · O Painel PJNP</div>
+  <h2>O painel como infraestrutura do campo</h2>
+  <div class="row grow">
+    <div class="col txt" style="flex:1.2">
+      <p>O Painel de Políticas Judiciárias Nacionais Programáticas, construído e mantido pela equipe gestora das PJNP no CNJ, reúne em base estruturada o portfólio nacional, suas iniciativas e seus colegiados.</p>
+      <p>Instrumentos dessa natureza organizam o que se torna visível, comparável e passível de acompanhamento (Lascoumes &amp; Le Galès, 2007). Campos de conhecimento consolidam-se quando dispõem de infraestruturas de dados compartilhadas.</p>
+      <p>O painel converte a acepção programática em objeto empírico. Sem ele, a etapa aplicada deste estudo não seria possível.</p>
+    </div>
+    <div class="col" style="flex:.85">
+      <div class="row" style="gap:12px">
+        <div class="card stat" style="flex:1"><div class="big">40</div><div class="lbl">políticas</div></div>
+        <div class="card stat" style="flex:1"><div class="big">253</div><div class="lbl">iniciativas</div></div>
+        <div class="card stat" style="flex:1"><div class="big">96</div><div class="lbl">colegiados</div></div>
+      </div>
+      <div class="card"><h3>Trajetória normativa</h3><p class="sm">IN CNJ 112/2026: ciclo de formulação, implementação, monitoramento e avaliação. IN CNJ 113/2026: governança colaborativa. Projeto ELO: aprimoramento da gestão do portfólio.</p></div>
+      <div class="sign on">Novo sinal do campo: infraestrutura de dados</div>
+    </div>
   </div>
-  <aside>Os limites decorrem do desenho exploratório e foram assumidos de forma deliberada. Cada um orienta uma hipótese ou um eixo da agenda.</aside>
+  <aside>Valorizar o trabalho da equipe gestora. O painel acrescenta ao termômetro um sétimo sinal: a existência de infraestrutura de dados própria. Os registros analisados correspondem a um momento de consolidação do instrumento, acompanhando o processo normativo de 2026.</aside>
 </section>
 
 <!-- 12 -->
 <section class="slide" data-t="90">
-  <div class="kicker">11 · Hipóteses para investigação futura</div>
-  <h2 style="margin-bottom:16px">Hipóteses suscitadas</h2>
-  <div class="hyps">
-    <div class="hyp"><div class="id">H1</div><p>O crescimento da produção após 2014 acompanha a formalização normativa do planejamento estratégico do Judiciário.</p><div class="or">Base: série temporal e marcos <b>Res. 198/2014 e 325/2020</b></div></div>
-    <div class="hyp"><div class="id">H2</div><p>A acepção programática tende a se consolidar como gramática própria do campo brasileiro à medida que instrumentos como o Painel PJNP ampliam a visibilidade do portfólio.</p><div class="or">Base: <b>trajetória normativa</b> e painel</div></div>
-    <div class="hyp"><div class="id">H3</div><p>A relação entre atributos de governança registrados e resultados de execução varia conforme o estágio do ciclo da política.</p><div class="or">Base: <b>associações exploratórias</b></div></div>
-    <div class="hyp"><div class="id">H4</div><p>O núcleo programático ainda se apoia em referências da tradição comportamental.</p><div class="or">Base: <b>co-citação</b> do anel nuclear</div></div>
-    <div class="hyp"><div class="id">H5</div><p>Indicadores de maturidade observável ganham poder explicativo quando combinados a dados de implementação nos tribunais.</p><div class="or">Base: <b>proposta de índice</b></div></div>
+  <div class="kicker"><span class="act">III</span> Do mapa ao território · Achado 4</div>
+  <h2>Um portfólio diverso, em diferentes estágios do ciclo</h2>
+  <div class="row grow">
+    <div class="col txt" style="flex:1.15">
+      <p>O painel revela um portfólio temático amplo. Governança é a área mais frequente, com 13 políticas, e as demais distribuem-se por diferentes áreas temáticas e macrodesafios da Estratégia Nacional.</p>
+      <p>As políticas apresentam configurações distintas de governança, de número de iniciativas e de densidade de colegiados. Essa diversidade é coerente com políticas criadas em momentos diferentes, com desenhos institucionais próprios e em estágios distintos de maturação.</p>
+      <p>As associações exploratórias indicam que os atributos cadastrais acompanham o volume de iniciativas registradas, sem relação detectável com conclusão ou registro de produtos.</p>
+    </div>
+    <div class="col" style="flex:.9">
+      <div class="card" style="border-left:6px solid var(--teal)"><h3>Interpretação</h3><p class="sm">Registro cadastral e execução captam dimensões complementares da política, como assinalam Staats et al. (2005) ao distinguir desenho institucional e desempenho. Instrumentos de monitoramento ganham poder analítico quando combinados a dados de implementação.</p></div>
+      <div class="card"><h3>Leitura recomendada</h3><p class="sm">Os resultados descrevem o portfólio a partir dos registros disponíveis em um momento específico. Não constituem avaliação de desempenho das políticas.</p></div>
+    </div>
   </div>
-  <aside>As hipóteses são o principal produto do estudo. H4 decorre da co-citação: as obras mais citadas pelo anel nuclear tratam de comportamento decisório de juízes e de seleção de litígios.</aside>
+  <aside>Modelos bivariados descritivos com erro-padrão robusto. Associação com número de iniciativas: beta padronizado de 0,32. O agrupamento exploratório teve baixa separação entre grupos e serviu apenas para organizar o portfólio.</aside>
 </section>
 
 <!-- 13 -->
-<section class="slide" data-t="90">
-  <div class="kicker">12 · Agenda de pesquisa</div>
-  <h2 style="margin-bottom:16px">Eixos de continuidade</h2>
-  <div class="agenda">
-    <div class="ag"><div class="id">A1</div><h3>Construção colaborativa do instrumento</h3><p>Validar dimensões, variáveis e pesos com as equipes gestoras das PJNP.</p></div>
-    <div class="ag"><div class="id">A2</div><h3>Ampliação da base bibliográfica</h3><p>Incluir Web of Science, análise de texto completo e dupla codificação.</p></div>
-    <div class="ag"><div class="id">A3</div><h3>Estudos de caso</h3><p>Examinar políticas em diferentes estágios do ciclo para compreender trajetórias de maturação.</p></div>
-    <div class="ag"><div class="id">A4</div><h3>Governança judicial comparada</h3><p>Comparar o modelo brasileiro com outros conselhos judiciais.</p></div>
-    <div class="ag"><div class="id">A5</div><h3>Integração de dados de implementação</h3><p>Articular o painel a dados dos tribunais, como o DataJud, e a teorias de mudança.</p></div>
-    <div class="ag"><div class="id">A6</div><h3>Análise longitudinal</h3><p>Acompanhar o portfólio após a IN CNJ 112 e 113/2026 e o Projeto ELO.</p></div>
+<section class="slide" data-t="60">
+  <div class="kicker"><span class="act">IV</span> Perguntas fundadoras · Proposta</div>
+  <h2>Um índice de maturidade observável em construção</h2>
+  <div class="row grow">
+    <div class="col txt" style="flex:1.2">
+      <p>Como exercício exploratório, o estudo propõe o <b>IMO-PJNP</b>, que sintetiza três dimensões observáveis no painel: rastreabilidade do monitoramento, governança formal e alinhamento estratégico.</p>
+      <p>O índice não classifica nem avalia políticas. Demonstra como a acepção programática pode ser operacionalizada e abre uma agenda de aperfeiçoamento, a ser desenvolvida em diálogo com as equipes gestoras.</p>
+    </div>
+    <div class="col" style="flex:.85">
+      <div class="dimrow"><span class="dot" style="background:#00857d"></span><div><b>Rastreabilidade do monitoramento</b><br><span class="lbl">registro de instrumento de acompanhamento</span></div></div>
+      <div class="dimrow"><span class="dot" style="background:#1a171b"></span><div><b>Governança formal</b><br><span class="lbl">papéis de coordenação, supervisão e gerência</span></div></div>
+      <div class="dimrow"><span class="dot" style="background:#b8862b"></span><div><b>Alinhamento estratégico</b><br><span class="lbl">vínculo com metas, ODS e macrodesafios</span></div></div>
+      <p class="note">Composição e distribuição nos apêndices B e C.</p>
+    </div>
   </div>
-  <aside>Convidar tribunais, escolas judiciais e pesquisadores a participar da agenda. A continuidade depende da cooperação entre pesquisa e gestão.</aside>
+  <aside>Não aprofundar a fórmula. Enfatizar que se trata de proposta inicial, construída de forma colaborativa, e que mede apenas o que está registrado, sem juízo sobre a qualidade das políticas.</aside>
 </section>
 
 <!-- 14 -->
+<section class="slide" data-t="60">
+  <div class="kicker"><span class="act">IV</span> Perguntas fundadoras · Limites</div>
+  <h2>Limites declarados e seus desdobramentos</h2>
+  <div class="lims">
+    <div class="lim"><h3>Dados bibliográficos</h3><ul><li>Web of Science não incluída</li><li>Resumos em 14,8% do corpus</li><li>Co-citação com 27% do anel nuclear</li></ul><div class="to"><span class="pill p-hip">H4</span><span class="pill p-ag">A2</span></div></div>
+    <div class="lim"><h3>Classificação semântica</h3><ul><li>Decisões apoiadas sobretudo no título</li><li>Sem dupla codificação independente</li><li>Parcela relevante de indeterminados</li></ul><div class="to"><span class="pill p-hip">H4</span><span class="pill p-ag">A2</span></div></div>
+    <div class="lim"><h3>Proposta de índice</h3><ul><li>Pesos normativos não validados</li><li>Variáveis de presença de registro</li><li>Não mede qualidade, efetividade ou impacto</li></ul><div class="to"><span class="pill p-hip">H5</span><span class="pill p-ag">A1</span></div></div>
+    <div class="lim"><h3>Inferência</h3><ul><li>Desenho descritivo e modelos bivariados</li><li>40 políticas em um momento específico</li><li>Agrupamentos de uso heurístico</li></ul><div class="to"><span class="pill p-hip">H3</span><span class="pill p-ag">A3</span><span class="pill p-ag">A5</span></div></div>
+  </div>
+  <aside>Os limites decorrem do desenho exploratório e foram assumidos de forma deliberada. Cada um orienta uma hipótese ou um eixo da agenda.</aside>
+</section>
+
+<!-- 15 -->
+<section class="slide" data-t="80">
+  <div class="kicker"><span class="act">IV</span> Perguntas fundadoras · Hipóteses</div>
+  <h2 style="margin-bottom:14px">Hipóteses para um campo em formação</h2>
+  <div class="hyps">
+    <div class="hyp"><div class="id">H1</div><p>O crescimento da produção após 2014 acompanha a formalização normativa do planejamento estratégico do Judiciário.</p><div class="or">Base: série anual e marcos normativos</div></div>
+    <div class="hyp"><div class="id">H2</div><p>A acepção programática tende a se consolidar como gramática própria do campo brasileiro à medida que instrumentos como o Painel PJNP ampliam a visibilidade do portfólio.</p><div class="or">Base: trajetória normativa e painel</div></div>
+    <div class="hyp"><div class="id">H3</div><p>A relação entre atributos de governança registrados e resultados de execução varia conforme o estágio do ciclo da política.</p><div class="or">Base: associações exploratórias</div></div>
+    <div class="hyp"><div class="id">H4</div><p>O núcleo programático ainda se apoia em referências da tradição comportamental.</p><div class="or">Base: co-citação do anel nuclear</div></div>
+    <div class="hyp"><div class="id">H5</div><p>Indicadores de maturidade observável ganham poder explicativo quando combinados a dados de implementação nos tribunais.</p><div class="or">Base: proposta de índice</div></div>
+  </div>
+  <aside>As hipóteses são o principal produto do estudo e funcionam como perguntas fundadoras do campo. H4 decorre da co-citação: as obras mais citadas pelo anel nuclear tratam de comportamento decisório de juízes e de seleção de litígios.</aside>
+</section>
+
+<!-- 16 -->
+<section class="slide" data-t="60">
+  <div class="kicker"><span class="act">IV</span> Perguntas fundadoras · Agenda</div>
+  <h2 style="margin-bottom:14px">Agenda para a consolidação do campo</h2>
+  <div class="agenda">
+    <div class="ag"><div class="id">A1</div><h3>Construção colaborativa do instrumento</h3><p>Validar dimensões, variáveis e pesos com as equipes gestoras das PJNP.</p></div>
+    <div class="ag"><div class="id">A2</div><h3>Ampliação da base bibliográfica</h3><p>Web of Science, análise de texto completo e dupla codificação.</p></div>
+    <div class="ag"><div class="id">A3</div><h3>Estudos de caso</h3><p>Políticas em diferentes estágios do ciclo, para compreender trajetórias de maturação.</p></div>
+    <div class="ag"><div class="id">A4</div><h3>Governança judicial comparada</h3><p>Comparação do modelo brasileiro com outros conselhos judiciais.</p></div>
+    <div class="ag"><div class="id">A5</div><h3>Integração de dados de implementação</h3><p>Articulação do painel a dados dos tribunais, como o DataJud, e a teorias de mudança.</p></div>
+    <div class="ag"><div class="id">A6</div><h3>Análise longitudinal</h3><p>Acompanhamento do portfólio na Estratégia 2027–2032.</p></div>
+  </div>
+  <aside>Convidar tribunais, escolas judiciais e pesquisadores a participar da agenda. A consolidação do campo depende da cooperação entre pesquisa e gestão.</aside>
+</section>
+
+<!-- 17 -->
 <section class="slide s-end" data-t="30">
-  <div class="kicker" style="color:#8fb3e6">Considerações finais</div>
-  <div class="quote">Delimitar o que se pode observar é condição para avaliar políticas judiciárias com rigor.</div>
-  <p style="margin-top:34px;font-size:19px;max-width:1000px">O estudo oferece uma cartografia do campo, uma delimitação conceitual e uma agenda de pesquisa construída sobre a infraestrutura informacional do Painel PJNP.</p>
-  <p style="margin-top:26px;font-size:19px">Igor Caires Machado · CNJ / ENAJU</p>
-  <p style="font-size:15px;color:#a9bddb">Dados, códigos e codebooks em repositório público (Machado et al., 2026)</p>
-  <aside>Encerrar e abrir para perguntas. Os apêndices trazem o quadro das acepções e a composição proposta do índice.</aside>
+  <div class="row" style="align-items:center;gap:56px;height:100%">
+    <div class="col" style="flex:1.4;gap:0">
+      <div class="kicker">Considerações finais</div>
+      <div class="quote">Delimitar o que se pode observar é condição para que a política judiciária se consolide como campo de conhecimento e de avaliação.</div>
+      <p class="fin">O estudo oferece uma cartografia do campo, uma delimitação conceitual e uma agenda de pesquisa construída sobre a infraestrutura informacional do Painel PJNP.</p>
+      <p class="fin2">Dados, códigos e codebooks em repositório público (Machado et al., 2026)</p>
+    </div>
+    <div class="col qrbox" style="flex:.6">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41" class="qr" shape-rendering="crispEdges"><path fill="#fff" d="M0 0h41v41h-41z"/><path class="qrline" stroke="#1a171b" d="M2 2.5h7m3 0h2m4 0h2m3 0h1m2 0h1m3 0h1m1 0h7m-37 1h1m5 0h1m3 0h1m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m3 0h2m2 0h1m4 0h2m3 0h3m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m6 0h1m1 0h1m5 0h5m2 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h4m1 0h1m1 0h7m1 0h1m4 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m1 0h2m2 0h1m3 0h2m3 0h1m2 0h1m2 0h2m1 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-29 1h2m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1m2 0h3m-29 1h1m1 0h5m4 0h1m2 0h3m2 0h1m1 0h1m2 0h3m1 0h1m1 0h5m-34 1h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m2 0h1m2 0h1m1 0h1m1 0h2m1 0h1m1 0h1m-36 1h2m1 0h1m1 0h3m1 0h1m2 0h6m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m2 0h1m1 0h2m-37 1h4m3 0h1m1 0h1m2 0h1m1 0h2m3 0h3m4 0h1m1 0h2m3 0h1m2 0h1m-36 1h1m4 0h2m1 0h1m1 0h9m2 0h2m1 0h2m2 0h2m1 0h1m1 0h3m-37 1h4m1 0h1m5 0h1m3 0h2m1 0h2m3 0h1m4 0h1m2 0h1m3 0h1m-34 1h1m2 0h2m1 0h5m2 0h2m1 0h1m3 0h1m3 0h4m1 0h3m2 0h1m-35 1h3m2 0h1m1 0h2m1 0h1m1 0h3m2 0h1m3 0h2m6 0h2m-33 1h2m1 0h2m1 0h4m1 0h5m2 0h1m1 0h3m1 0h4m1 0h3m2 0h1m1 0h1m-36 1h2m4 0h1m1 0h1m3 0h5m3 0h1m1 0h1m1 0h1m2 0h4m1 0h1m1 0h1m-36 1h4m2 0h2m1 0h2m1 0h1m4 0h1m2 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h5m-37 1h3m1 0h1m9 0h1m1 0h1m4 0h2m5 0h3m1 0h2m2 0h1m-36 1h1m1 0h1m1 0h3m3 0h2m3 0h1m5 0h1m2 0h2m1 0h3m1 0h1m1 0h1m-35 1h2m1 0h3m1 0h4m1 0h2m1 0h7m1 0h1m1 0h1m2 0h1m4 0h1m1 0h1m-36 1h10m1 0h5m1 0h1m2 0h2m3 0h4m1 0h4m2 0h1m-37 1h2m7 0h4m1 0h1m2 0h2m1 0h3m3 0h4m1 0h2m2 0h1m-34 1h1m1 0h1m1 0h4m1 0h2m3 0h1m4 0h1m1 0h1m1 0h3m2 0h1m3 0h2m-36 1h4m1 0h1m1 0h1m2 0h2m1 0h1m1 0h1m2 0h1m1 0h1m1 0h2m2 0h1m1 0h1m2 0h1m-32 1h1m5 0h1m1 0h6m1 0h2m2 0h1m1 0h1m2 0h1m2 0h2m4 0h4m-37 1h1m1 0h1m1 0h1m2 0h1m2 0h2m3 0h1m3 0h4m1 0h1m1 0h1m2 0h2m4 0h1m-36 1h1m2 0h1m1 0h3m2 0h2m2 0h2m3 0h2m1 0h11m3 0h1m-29 1h1m5 0h3m1 0h3m1 0h3m2 0h2m3 0h2m1 0h2m-37 1h7m2 0h3m1 0h1m1 0h2m1 0h1m3 0h1m2 0h1m2 0h1m1 0h1m1 0h1m1 0h3m-37 1h1m5 0h1m1 0h1m1 0h2m2 0h2m7 0h1m2 0h1m1 0h1m3 0h2m1 0h1m-36 1h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m2 0h8m1 0h6m1 0h1m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m4 0h1m1 0h3m3 0h1m1 0h1m3 0h4m1 0h1m1 0h1m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h2m1 0h4m2 0h1m2 0h3m1 0h1m1 0h2m1 0h1m4 0h3m-37 1h1m5 0h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h1m1 0h1m3 0h3m2 0h1m3 0h1m-37 1h7m1 0h1m1 0h2m1 0h2m7 0h5m2 0h1m2 0h1m2 0h2"/></svg>
+      <div class="qrl">Contatos dos autores</div>
+      <div class="qru">cairesmachado-svg.github.io/ENAJUS_2026_PJPNS/contatos.html</div>
+    </div>
+  </div>
+  <aside>Encerrar e abrir para perguntas. O QR code leva à página de contatos dos quatro autores. Os apêndices trazem o quadro das acepções, a composição proposta do índice e sua distribuição.</aside>
 </section>
 
 <!-- Apêndice A -->
@@ -470,7 +501,7 @@ h2{margin-bottom:22px}
   <span class="app-tag">APÊNDICE B</span>
   <div class="kicker">Material de apoio</div>
   <h2>IMO-PJNP: composição proposta</h2>
-  <div class="formula" style="font-size:36px;padding:6px 0 20px">IMO = <b class="m">40</b>·M + <b class="g">35</b>·G + <b class="a">25</b>·A</div>
+  <div class="formula">IMO = <b style="color:#00857d">40</b>·M + <b style="color:#1a171b">35</b>·G + <b style="color:#b8862b">25</b>·A</div>
   <div class="row">
     <div class="col" style="flex:1.2">
       <table>
@@ -488,15 +519,28 @@ h2{margin-bottom:22px}
   <aside>Usar apenas se houver pergunta sobre a construção do índice.</aside>
 </section>
 
-</div>
+<!-- Apêndice C -->
+<section class="slide" data-t="0">
+  <span class="app-tag">APÊNDICE C</span>
+  <div class="kicker">Material de apoio</div>
+  <h2>Distribuição do IMO-PJNP no Painel PJNP</h2>
+  <div class="row grow">
+    <div class="col" style="flex:1.3"><svg viewBox="0 0 620 300" class="chart" role="img" aria-label="Distribuição do IMO-PJNP"><line x1="40" x2="608" y1="260.0" y2="260.0" stroke="#e4e1da"/><text x="32" y="264.0" text-anchor="end" class="ax">0</text><line x1="40" x2="608" y1="178.0" y2="178.0" stroke="#e4e1da"/><text x="32" y="182.0" text-anchor="end" class="ax">4</text><line x1="40" x2="608" y1="96.0" y2="96.0" stroke="#e4e1da"/><text x="32" y="100.0" text-anchor="end" class="ax">8</text><line x1="40" x2="608" y1="14.0" y2="14.0" stroke="#e4e1da"/><text x="32" y="18.0" text-anchor="end" class="ax">12</text><rect x="67.6" y="34.5" width="64.4" height="225.5" rx="2" fill="#00857d"/><text x="99.8" y="28.5" text-anchor="middle" class="ax">11</text><rect x="134.0" y="219.0" width="64.7" height="41.0" rx="2" fill="#00857d"/><text x="166.4" y="213.0" text-anchor="middle" class="ax">2</text><rect x="200.8" y="178.0" width="64.7" height="82.0" rx="2" fill="#00857d"/><text x="233.1" y="172.0" text-anchor="middle" class="ax">4</text><rect x="333.9" y="198.5" width="64.4" height="61.5" rx="2" fill="#00857d"/><text x="366.1" y="192.5" text-anchor="middle" class="ax">3</text><rect x="400.3" y="157.5" width="64.7" height="102.5" rx="2" fill="#00857d"/><text x="432.6" y="151.5" text-anchor="middle" class="ax">5</text><rect x="467.0" y="34.5" width="64.7" height="225.5" rx="2" fill="#00857d"/><text x="499.4" y="28.5" text-anchor="middle" class="ax">11</text><rect x="533.7" y="178.0" width="64.4" height="82.0" rx="2" fill="#00857d"/><text x="565.9" y="172.0" text-anchor="middle" class="ax">4</text><text x="75.5" y="280" text-anchor="middle" class="ax">20</text><text x="146.5" y="280" text-anchor="middle" class="ax">30</text><text x="217.5" y="280" text-anchor="middle" class="ax">40</text><text x="288.5" y="280" text-anchor="middle" class="ax">50</text><text x="359.5" y="280" text-anchor="middle" class="ax">60</text><text x="430.5" y="280" text-anchor="middle" class="ax">70</text><text x="501.5" y="280" text-anchor="middle" class="ax">80</text><text x="572.5" y="280" text-anchor="middle" class="ax">90</text><line x1="40" x2="608" y1="260" y2="260" stroke="#707173"/><text x="324.0" y="298" text-anchor="middle" class="ax">IMO-PJNP (0–100)</text></svg><p class="note">Número de políticas por faixa do índice (N = 40). Reproduz a Figura 6 do artigo.</p></div>
+    <div class="col txt" style="flex:.9">
+      <p class="sm">A distribuição é bimodal: um grupo concentra-se nas faixas superiores e outro nas inferiores. Como o índice mede apenas a presença de registros, a forma da distribuição reflete o estágio de documentação no painel no momento da extração dos dados.</p>
+      <p class="sm">A leitura adequada é descritiva. A validação colaborativa das variáveis (A1) e a análise longitudinal (A6) permitirão distinguir lacunas de registro de diferenças de desenho institucional.</p>
+    </div>
+  </div>
+  <aside>Usar apenas se perguntarem sobre a distribuição do índice. Reforçar que não se trata de ranking nem de avaliação das políticas.</aside>
+</section>
 
+</div>
 <div class="progress" id="progress"></div>
 <div class="help" id="help">← → navegar · N notas · T cronômetro · F tela cheia</div>
 <div class="hud"><span id="clock"></span></div>
 <div class="notes" id="notes"></div>
 <button class="navbtn prev" id="prev" aria-label="Slide anterior">‹</button>
 <button class="navbtn next" id="next" aria-label="Próximo slide">›</button>
-
 <script>
 (function(){
   const slides=[...document.querySelectorAll('.slide')];
@@ -546,5 +590,6 @@ h2{margin-bottom:22px}
   show((parseInt(location.hash.slice(1))||1)-1);
 })();
 </script>
+
 </body>
 </html>
