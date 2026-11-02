@@ -16,7 +16,7 @@ Pela linha de comando:
 ```bash
 git init && git add . && git commit -m "Apresentação ENAJUS"
 git branch -M main
-git remote add origin https://github.com/<seu-usuario>/enajus-pjnp.git
+git remote add origin https://cairesmachado-svg.github.io/ENAJUS_2026_PJPNS/#1
 git push -u origin main
 ```
 
