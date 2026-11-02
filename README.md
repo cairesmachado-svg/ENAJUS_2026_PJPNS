@@ -9,7 +9,7 @@ Arquivo único, sem dependências além das fontes do Google Fonts. Abre offline
 1. Crie um repositório, por exemplo `enajus-pjnp`.
 2. Envie `index.html`, `contatos.html`, `.nojekyll` e este `README.md` para a raiz da branch `main`.
 3. Em **Settings › Pages**, escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`.
-4. O endereço será `https://<seu-usuario>.github.io/enajus-pjnp/`.
+4. O endereço será `https://cairesmachado-svg.github.io/ENAJUS_2026_PJPNS/#1`.
 
 Pela linha de comando:
 
